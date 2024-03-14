@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">BookClubApp</string>
+    <string name="user_name">Логин или почта</string>
+    <string name="password">Пароль</string>
+    <string name="login">Войти</string>
+    <string name="greeting">greeting</string>
+    <string name="register">Присоединиться</string>
+    <string name="skip">Пропустить</string>
+    <string name="instructionRegistration">Все поля обязательны для заполнения</string>
+    <string name="name">Имя</string>
+    <string name="fakename">Логин</string>
+    <string name="email">Почта</string>
+    <string name="repeatPassword">Повторите пароль</string>
+    <string name="registerNow">Зарегистрироваться</string>
+</resources>

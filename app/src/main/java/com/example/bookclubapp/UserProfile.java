@@ -56,7 +56,9 @@ public class UserProfile extends AppCompatActivity {
         finish();
 
     }
-
-
-
+    public void goToLogin(View view){
+        Intent intent = new Intent(UserProfile.this, Login.class);
+        startActivity(intent);
+        finish();
+    }
 }

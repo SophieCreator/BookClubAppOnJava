@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">BookClubApp</string>
-    <string name="user_name">Логин или почта</string>
+    <string name="user_data">Логин или почта</string>
     <string name="password">Пароль</string>
     <string name="login">Войти</string>
     <string name="greeting">greeting</string>
@@ -12,4 +12,5 @@
     <string name="email">Почта</string>
     <string name="repeatPassword">Повторите пароль</string>
     <string name="registerNow">Зарегистрироваться</string>
+    <string name="enter">Поехали!</string>
 </resources>

@@ -84,8 +84,8 @@
             >
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/userName"
-                android:hint="@string/user_name"
+                android:id="@+id/idInfo"
+                android:hint="@string/user_data"
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/userPassword"
+                android:id="@+id/password"
                 android:hint="@string/password"
 
                 android:layout_width="match_parent"
@@ -120,17 +120,38 @@
             </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
+        <Button
+            android:id="@+id/btnEnter"
+            android:text="@string/enter"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:paddingRight="50dp"
+            android:paddingLeft="50dp"
+            android:paddingBottom="15dp"
+            android:paddingTop="15dp"
+
+            android:layout_marginTop="10dp"
+
+            android:backgroundTint="@color/purple"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-medium"
+            style="@style/Widget.AppCompat.ButtonBar"
+            />
+
         <LinearLayout
             android:id="@+id/skipEnterLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="bottom"
+            android:gravity="center|bottom"
             >
 
             <ImageView
                 android:id="@+id/imageGreeting2"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_weight="1"
                 android:contentDescription="@string/greeting"
                 android:src="@drawable/greeting2"
                 />
@@ -139,10 +160,14 @@
                 android:id="@+id/btnSkip"
                 android:text="@string/skip"
 
-                android:layout_width="150dp"
-                android:layout_height="70dp"
-                android:backgroundTint="#79FFFFFF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
+                android:paddingBottom="20dp"
+                android:paddingTop="20dp"
+
+                android:backgroundTint="#79FFFFFF"
+                android:layout_weight="1"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@color/purple"
                 android:textSize="16sp"

@@ -21,6 +21,8 @@
 
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
 
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +42,7 @@
             <LinearLayout
                 android:id="@+id/LoginOrRegister"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center_horizontal"
                 >
@@ -48,11 +50,13 @@
                 <Button
                     android:id="@+id/btnLogin"
                     android:text="@string/login"
+                    android:onClick="goToLogin"
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
                     android:layout_marginEnd="2dp"
+                    android:padding="20dp"
 
                     android:textColor="@color/purple"
                     app:strokeColor="@color/purple"
@@ -64,13 +68,14 @@
                     />
 
                 <Button
-                    android:id="@+id/btnRegister"
+                    android:id="@+id/btnSignUp"
                     android:text="@string/register"
 
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="0.5"
                     android:layout_marginStart="2dp"
+                    android:padding="20dp"
 
                     android:backgroundTint="@color/purple"
                     android:textSize="15sp"
@@ -94,7 +99,7 @@
                 >
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/userNameInputLayout"
+                    android:id="@+id/name"
                     android:hint="@string/name"
 
                     android:layout_width="match_parent"
@@ -112,7 +117,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/userFakenameInputLayout"
+                    android:id="@+id/login"
                     android:hint="@string/fakename"
 
                     android:layout_width="match_parent"
@@ -130,7 +135,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/userEmailInputLayout"
+                    android:id="@+id/email"
                     android:hint="@string/email"
 
                     android:layout_width="match_parent"
@@ -148,7 +153,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/userPasswordInputLayout"
+                    android:id="@+id/password"
                     android:hint="@string/password"
 
                     android:layout_width="match_parent"
@@ -166,7 +171,7 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/userPasswordCheckInputLayout"
+                    android:id="@+id/passwordCheck"
                     android:hint="@string/repeatPassword"
 
                     android:layout_width="match_parent"
@@ -190,7 +195,8 @@
                 android:text="@string/registerNow"
 
                 android:layout_width="wrap_content"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
                 android:layout_marginTop="30dp"
 
                 android:backgroundTint="@color/purple"
@@ -219,8 +225,9 @@
                     android:id="@+id/btnSkip"
                     android:text="@string/skip"
 
-                    android:layout_width="150dp"
-                    android:layout_height="70dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
                     android:backgroundTint="#79FFFFFF"
 
                     android:fontFamily="sans-serif-medium"

@@ -59,6 +59,7 @@
             <Button
                 android:id="@+id/btnRegister"
                 android:text="@string/register"
+                android:onClick="goToSignUp"
 
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -83,7 +84,7 @@
             >
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/userNameInputLayout"
+                android:id="@+id/userName"
                 android:hint="@string/user_name"
 
                 android:layout_width="match_parent"
@@ -101,7 +102,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/userPasswordInputLayout"
+                android:id="@+id/userPassword"
                 android:hint="@string/password"
 
                 android:layout_width="match_parent"

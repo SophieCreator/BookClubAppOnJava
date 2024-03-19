@@ -3,17 +3,13 @@ package com.example.bookclubapp;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -27,11 +23,12 @@ import com.google.android.material.textfield.TextInputEditText;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class SignUp extends AppCompatActivity {
 
     TextInputEditText name, login, email, password, passwordCheck;
-    Button btnSignUp;
+    Button btnJoin;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -47,10 +44,11 @@ public class SignUp extends AppCompatActivity {
         passwordCheck = findViewById(R.id.passwordCheck);
 
         // Захват кнопки
-        btnSignUp = findViewById(R.id.btnSignUp);
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        btnJoin = findViewById(R.id.btnJoin);
+        btnJoin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d("SignUp:","Button Join successfully clicked");
                 processInputFields();
             }
         });
@@ -70,13 +68,7 @@ public class SignUp extends AppCompatActivity {
 
         // Создаём очередь запросов на сервер
         RequestQueue queue = Volley.newRequestQueue(SignUp.this);
-
-        // !!!!!!!
-        // Нужно вставить url своего компьютера!!!
-        // !!!!!!!!
-
-        String url = "http://192.168.0.104:9080/api/v1/user/register";
-
+        String url = "http://192.168.43.3:9080/api/v1/user/register";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -95,6 +87,7 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 Toast.makeText(SignUp.this, "Вы не зарегистированы!", Toast.LENGTH_LONG).show();
+                Log.d("CHECKERROR", Objects.requireNonNull(volleyError.getMessage()));
             }
         }){
             @Nullable
@@ -106,11 +99,15 @@ public class SignUp extends AppCompatActivity {
                 // Параметры должны называться как на сервере!!!!
                 // !!!!!!!!
 
-                params.put("name", name.getText().toString());
-                params.put("login", login.getText().toString());
-                params.put("email", email.getText().toString());
-                params.put("password", password.getText().toString());
-                params.put("passwordCheck", passwordCheck.getText().toString());
+                params.put("name", Objects.requireNonNull(name.getText()).toString());
+                params.put("login", Objects.requireNonNull(login.getText()).toString());
+                params.put("email", Objects.requireNonNull(email.getText()).toString());
+                params.put("password", Objects.requireNonNull(password.getText()).toString());
+                params.put("is_admin", "0");
+
+                String par = name.getText().toString() + " " + login.getText().toString() + " " + email.getText().toString() + " " + password.getText().toString();
+
+                Log.d("PARAMS", par);
 
                 return params;
             }

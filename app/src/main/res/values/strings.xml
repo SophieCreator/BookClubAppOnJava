@@ -13,4 +13,6 @@
     <string name="repeatPassword">Повторите пароль</string>
     <string name="registerNow">Зарегистрироваться</string>
     <string name="enter">Поехали!</string>
+    <string name="book_club_name">Ловцы слов</string>
+    <string name="book_club">книжный клуб</string>
 </resources>

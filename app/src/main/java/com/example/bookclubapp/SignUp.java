@@ -73,15 +73,17 @@ public class SignUp extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                if(response.equalsIgnoreCase("success")){
-                    // очищаем поля после пользователя
-                    name.setText(null);
-                    login.setText(null);
-                    email.setText(null);
-                    password.setText(null);
-                    passwordCheck.setText(null);
-                    Toast.makeText(SignUp.this, "Вы успешно зарегистированы!", Toast.LENGTH_LONG).show();
-                }
+                // очищаем поля после пользователя
+                name.setText(null);
+                login.setText(null);
+                email.setText(null);
+                password.setText(null);
+                passwordCheck.setText(null);
+                Toast.makeText(SignUp.this, "Вы успешно зарегистированы!", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(SignUp.this, Login.class);
+                startActivity(intent);
+                finish();
+
             }
         }, new Response.ErrorListener() {
             @Override

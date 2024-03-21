@@ -2,6 +2,7 @@ package com.example.bookclubapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,10 +27,11 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Login extends AppCompatActivity {
 
-    Button btnEnter;
+    Button btnEnter, btnLogin, btnRegister;
     TextInputEditText idInfo, password;
 
     @Override
@@ -41,14 +43,22 @@ public class Login extends AppCompatActivity {
         password = findViewById(R.id.password);
 
         btnEnter = findViewById(R.id.btnEnter);
+        btnRegister = findViewById(R.id.btnRegister);
 
         btnEnter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 authenticateUser();
             }
         });
 
+        btnRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                goToSignUp(v);
+            }
+        });
     }
 
     public void goToSignUp(View view){
@@ -58,40 +68,27 @@ public class Login extends AppCompatActivity {
     }
 
     public void authenticateUser(){
-        if (!(validateEmail() || validateLogin()) || !validatePassword()){
+        if (!validateEmailOrLogin() || !validatePassword()){
             return;
         }
 
         // Создаём очередь запросов на сервер
         RequestQueue queue = Volley.newRequestQueue(Login.this);
 
-        // !!!!!!!
-        // Нужно вставить url своего компьютера!!!
-        // !!!!!!!!
-
-        String url = "http://192.168.0.104:9080/api/v1/user/login";
+        String url = "http://192.168.43.3:9080/api/v1/user/login";
 
         Map<String, String> params = new HashMap<String, String>();
-
-        // !!!!!!!
-        // Параметры должны называться как на сервере!!!!
-        // !!!!!!!!
-
-        if (validateEmail()){
-            params.put("email", idInfo.getText().toString());
-        } else {
-            params.put("login", idInfo.getText().toString());
-        }
+        params.put("emailOrLogin", idInfo.getText().toString());
         params.put("password", password.getText().toString());
+
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
+
                 try {
                     String name = (String) response.get("name");
                     String email = (String) response.get("email");
-
-                    // ПОСЛЕ СОЗДАНИЯ АКТИВИТИ ПРОФИЛЯ ОТКОММИТИТЬ
 
                     Intent goToProfile = new Intent(Login.this, UserProfile.class);
                     // пробрасываем значения в следующее активити
@@ -101,6 +98,7 @@ public class Login extends AppCompatActivity {
                     finish();
 
                 } catch (JSONException e){
+                    Log.d("LOGINERR", Objects.requireNonNull(e.getMessage()));
                     e.printStackTrace();
                     System.out.println(e.getMessage());
                 }
@@ -110,30 +108,16 @@ public class Login extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 error.printStackTrace();
                 System.out.println(error.getMessage());
+                Log.d("LOGINERR", error.getMessage());
                 Toast.makeText(Login.this, "Не удалось войти", Toast.LENGTH_LONG).show();
             }
         });
-
         queue.add(jsonObjectRequest);
 
     }
 
 
-    public boolean validateEmail(){
-        String uIdInfo =  String.valueOf(idInfo.getText());
-        if (uIdInfo.isEmpty()){
-            idInfo.setError("Поле не может быть пустым!");
-            return false;
-        } else if(!StringHelper.EmailValidationOnPattern(uIdInfo)){
-            idInfo.setError("Почта введена некорректно!");
-            return false;
-        } else {
-            idInfo.setError(null);
-            return true;
-        }
-    }
-
-    public boolean validateLogin(){
+    public boolean validateEmailOrLogin(){
         String uIdInfo =  String.valueOf(idInfo.getText());
         if (uIdInfo.isEmpty()){
             idInfo.setError("Поле не может быть пустым!");

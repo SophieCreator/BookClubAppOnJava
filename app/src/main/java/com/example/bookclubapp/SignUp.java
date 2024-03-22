@@ -21,6 +21,7 @@ import com.android.volley.toolbox.Volley;
 import com.example.bookclubapp.helpers.StringHelper;
 import com.google.android.material.textfield.TextInputEditText;
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -87,10 +88,20 @@ public class SignUp extends AppCompatActivity {
             }
         }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError volleyError) {
+            public void onErrorResponse(VolleyError error) {
+                String body = "";
+                int status = error.networkResponse.statusCode;
+                Log.d("onErrorResponse", String.valueOf(status));
 
-                Toast.makeText(SignUp.this, "Вы не зарегистированы!", Toast.LENGTH_LONG).show();
-                Log.d("CHECKERROR", Objects.requireNonNull(volleyError.getMessage()));
+                if (error.networkResponse.data != null) {
+                    try {
+                        body = new String(error.networkResponse.data, "UTF-8");
+                        Log.d("onErrorResponse", body);
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    Toast.makeText(SignUp.this, body, Toast.LENGTH_LONG).show();
+                }
             }
         }){
             @Nullable

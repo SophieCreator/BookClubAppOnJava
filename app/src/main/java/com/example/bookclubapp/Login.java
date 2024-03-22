@@ -33,7 +33,7 @@ import java.util.Objects;
 
 public class Login extends AppCompatActivity {
 
-    Button btnEnter, btnLogin, btnRegister;
+    Button btnEnter, btnRegister;
     TextInputEditText idInfo, password;
 
     @Override
@@ -91,12 +91,20 @@ public class Login extends AppCompatActivity {
                 try {
                     String name = (String) response.get("name");
                     String email = (String) response.get("email");
-                    Intent goToProfile = new Intent(Login.this, UserProfile.class);
-                    // пробрасываем значения в следующее активити
-                    goToProfile.putExtra("name", name);
-                    goToProfile.putExtra("email", email);
-                    startActivity(goToProfile);
-                    finish();
+                    String is_admin = (String) response.get("is_admin");
+                    if (is_admin.equals("1")) {
+                        Intent goToProfile = new Intent(Login.this, AdminLists.class);
+                        // пробрасываем значения в следующее активити
+                        startActivity(goToProfile);
+                        finish();
+                    } else {
+                        Intent goToProfile = new Intent(Login.this, UserProfile.class);
+                        // пробрасываем значения в следующее активити
+                        goToProfile.putExtra("name", name);
+                        goToProfile.putExtra("email", email);
+                        startActivity(goToProfile);
+                        finish();
+                    }
                 } catch (JSONException e){
                     
                     Toast.makeText(Login.this, e.getMessage(), Toast.LENGTH_LONG).show();
@@ -112,7 +120,6 @@ public class Login extends AppCompatActivity {
                 if (error.networkResponse.data != null) {
                     try {
                         body = new String(error.networkResponse.data, "UTF-8");
-
                         Log.d("onErrorResponse", body);
                     } catch (UnsupportedEncodingException e) {
                         e.printStackTrace();

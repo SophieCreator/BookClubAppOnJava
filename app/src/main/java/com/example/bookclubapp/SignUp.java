@@ -88,6 +88,7 @@ public class SignUp extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
+
                 Toast.makeText(SignUp.this, "Вы не зарегистированы!", Toast.LENGTH_LONG).show();
                 Log.d("CHECKERROR", Objects.requireNonNull(volleyError.getMessage()));
             }

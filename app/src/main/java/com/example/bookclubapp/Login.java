@@ -25,6 +25,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -85,35 +87,41 @@ public class Login extends AppCompatActivity {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params), new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-
+                Log.d("onResponse", response.toString());
                 try {
                     String name = (String) response.get("name");
                     String email = (String) response.get("email");
-
                     Intent goToProfile = new Intent(Login.this, UserProfile.class);
                     // пробрасываем значения в следующее активити
                     goToProfile.putExtra("name", name);
                     goToProfile.putExtra("email", email);
                     startActivity(goToProfile);
                     finish();
-
                 } catch (JSONException e){
-                    Log.d("LOGINERR", Objects.requireNonNull(e.getMessage()));
-                    e.printStackTrace();
-                    System.out.println(e.getMessage());
+                    
+                    Toast.makeText(Login.this, e.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                error.printStackTrace();
-                System.out.println(error.getMessage());
-                Log.d("LOGINERR", error.getMessage());
-                Toast.makeText(Login.this, "Не удалось войти", Toast.LENGTH_LONG).show();
+                String body = "";
+                int status = error.networkResponse.statusCode;
+                Log.d("onErrorResponse", String.valueOf(status));
+
+                if (error.networkResponse.data != null) {
+                    try {
+                        body = new String(error.networkResponse.data, "UTF-8");
+
+                        Log.d("onErrorResponse", body);
+                    } catch (UnsupportedEncodingException e) {
+                        e.printStackTrace();
+                    }
+                    Toast.makeText(Login.this, body, Toast.LENGTH_LONG).show();
+                }
             }
         });
         queue.add(jsonObjectRequest);
-
     }
 
 

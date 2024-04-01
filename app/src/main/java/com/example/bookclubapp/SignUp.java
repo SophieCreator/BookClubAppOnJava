@@ -69,7 +69,7 @@ public class SignUp extends AppCompatActivity {
 
         // Создаём очередь запросов на сервер
         RequestQueue queue = Volley.newRequestQueue(SignUp.this);
-        String url = "http://192.168.43.3:9080/api/v1/user/register";
+        String url = "http://192.168.43.3:9080/app/user/authentication/register";
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {

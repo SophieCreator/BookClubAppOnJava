@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient2"
+    tools:context=".AdminListsBooks">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="20dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <ImageButton
+                    android:id="@+id/btnBookList"
+                    android:src="@drawable/book_list_a"
+                    android:contentDescription="@string/book"
+                    android:onClick="goToBookList"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_marginEnd="5dp"
+                    android:padding="15dp"
+                    android:background="@drawable/rounder"
+
+                    android:backgroundTint="@color/white"
+                    />
+
+                <ImageButton
+                    android:id="@+id/btnMeetingList"
+                    android:src="@drawable/meeting_list_p"
+                    android:contentDescription="@string/meeting"
+                    android:onClick="goToMeetingList"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_marginEnd="5dp"
+                    android:padding="15dp"
+                    android:background="@drawable/rounder"
+                    android:backgroundTint="@color/white"
+                    />
+
+                <ImageButton
+                    android:id="@+id/btnUserList"
+                    android:src="@drawable/user_list_p"
+                    android:contentDescription="@string/user"
+                    android:onClick="goToUserList"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_marginEnd="5dp"
+                    android:padding="15dp"
+                    android:background="@drawable/rounder"
+                    android:backgroundTint="@color/white"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <ImageButton
+                    android:id="@+id/btnTestList"
+                    android:src="@drawable/test_p"
+                    android:contentDescription="@string/book"
+                    android:onClick="goToTestList"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_marginEnd="5dp"
+                    android:padding="15dp"
+                    android:background="@drawable/rounder"
+
+                    android:backgroundTint="@color/white"
+                    />
+
+                <ImageButton
+                    android:id="@+id/btnPollList"
+                    android:src="@drawable/poll_p"
+                    android:contentDescription="@string/meeting"
+                    android:onClick="goToPollList"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_marginEnd="5dp"
+                    android:padding="15dp"
+                    android:background="@drawable/rounder"
+
+                    android:backgroundTint="@color/white"
+                    />
+
+                <ImageButton
+                    android:id="@+id/btnRewardList"
+                    android:src="@drawable/reward_p"
+                    android:contentDescription="@string/user"
+                    android:onClick="goToRewadList"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:layout_marginEnd="5dp"
+                    android:padding="15dp"
+                    android:background="@drawable/rounder"
+
+                    android:backgroundTint="@color/white"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/no_books"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Список книг пуст"
+                android:textSize="22sp"
+                android:visibility="gone"
+                android:textFontWeight="700"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/book_list_recycler_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="5dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btnLists"
+            android:text="@string/lists"
+            android:onClick="goToLists"
+
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+            android:textColor="@color/purple"
+            
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/list_a"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-medium"
+            app:cornerRadius="0dp"
+            />
+
+        <Button
+            android:id="@+id/btnTasks"
+            android:text="@string/tasks"
+            android:onClick="goToTasks"
+
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/white"
+            
+            android:drawableTop="@drawable/task_p"
+            android:textSize="15sp"
+            android:textColor="@color/purple"
+            android:fontFamily="sans-serif-medium"
+            />
+
+        <Button
+            android:id="@+id/btnC"
+            android:text="n"
+            android:onClick="goToN"
+
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+
+            android:backgroundTint="@color/white"
+
+            android:textSize="15sp"
+            android:textColor="@color/purple"
+            android:fontFamily="sans-serif-medium"
+            />
+
+        <Button
+            android:id="@+id/btnBudget"
+            android:text="@string/budget"
+            android:onClick="goToLists"
+
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/finance_p"
+            android:textSize="15sp"
+            android:textColor="@color/purple"
+            android:fontFamily="sans-serif-medium"
+            />
+
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

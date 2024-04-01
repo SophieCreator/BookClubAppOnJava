@@ -17,7 +17,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".AdminLists"
+            android:name=".AdminListsBooks"
             android:exported="false" />
         <activity
             android:name=".UserProfile"

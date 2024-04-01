@@ -7,11 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -19,17 +15,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.bookclubapp.helpers.StringHelper;
 import com.google.android.material.textfield.TextInputEditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class Login extends AppCompatActivity {
 
@@ -77,7 +70,7 @@ public class Login extends AppCompatActivity {
         // Создаём очередь запросов на сервер
         RequestQueue queue = Volley.newRequestQueue(Login.this);
 
-        String url = "http://192.168.43.3:9080/api/v1/user/login";
+        String url = "http://192.168.43.3:9080/app/user/authentication/login";
 
         Map<String, String> params = new HashMap<String, String>();
         params.put("emailOrLogin", idInfo.getText().toString());
@@ -91,9 +84,9 @@ public class Login extends AppCompatActivity {
                 try {
                     String name = (String) response.get("name");
                     String email = (String) response.get("email");
-                    String is_admin = (String) response.get("is_admin");
-                    if (is_admin.equals("1")) {
-                        Intent goToProfile = new Intent(Login.this, AdminLists.class);
+                    String isAdmin = (String) response.get("isAdmin");
+                    if (isAdmin.equals("1")) {
+                        Intent goToProfile = new Intent(Login.this, AdminListsBooks.class);
                         // пробрасываем значения в следующее активити
                         startActivity(goToProfile);
                         finish();

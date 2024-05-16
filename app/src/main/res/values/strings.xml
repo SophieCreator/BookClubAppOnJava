@@ -17,10 +17,15 @@
     <string name="book_club">книжный клуб</string>
     <string name="lists">Списки</string>
     <string name="tasks">Задачи</string>
-    <string name="budget">Финансы\n</string>
+    <string name="budget">Финансы</string>
     <string name="list_header">Лаборатория</string>
     <string name="book">книги</string>
     <string name="meeting">встречи</string>
     <string name="user">люди</string>
     <string name="out">Выйти</string>
+    <string name="add">Добавить</string>
+    <string name="expenses">Расходы</string>
+    <string name="incomes">Доходы</string>
+    <string name="no_incomes">Нет ни одного дохода</string>
+    <string name="back">back</string>
 </resources>

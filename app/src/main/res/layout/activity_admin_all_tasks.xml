@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminAllTasks"
+    android:background="@drawable/gradient2"
+    >
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/MyTasOrAllTasks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            >
+
+            <Button
+                android:id="@+id/btnMyTasks"
+                android:text="Мои задачи"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:layout_marginEnd="2dp"
+                android:padding="20dp"
+
+                android:textColor="@color/purple"
+                android:backgroundTint="@color/white"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-medium"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/purple"
+                />
+
+            <Button
+                android:id="@+id/btnAllTasks"
+                android:text="Все задачи"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="0.5"
+                android:layout_marginStart="2dp"
+                android:padding="20dp"
+
+                android:backgroundTint="@color/purple"
+                android:textSize="15sp"
+                android:fontFamily="sans-serif-medium"
+                />
+
+        </LinearLayout>
+
+        <SearchView
+            android:id="@+id/taskSearch"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/rounder"
+            android:layout_marginBottom="20dp"
+            android:iconifiedByDefault="false"
+            >
+        </SearchView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/TaskList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                >
+
+                <ProgressBar
+                    android:id="@+id/get_not_progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:id="@+id/no_tasks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Нет задач"
+                    android:textSize="22sp"
+                    android:visibility="gone"
+                    android:layout_marginBottom="20dp"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/task_list_recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnAdd"
+        android:src="@drawable/plus"
+        android:contentDescription="button"
+
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:padding="15dp"
+        android:background="@drawable/rounder"
+
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        android:backgroundTint="@color/purple"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="5dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btnLists"
+            android:text="@string/lists"
+            android:onClick="goToLists"
+
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+            android:textColor="@color/purple"
+
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/list_p"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-medium"
+            app:cornerRadius="0dp"
+            />
+
+        <Button
+            android:id="@+id/btnTasks"
+            android:text="@string/tasks"
+            android:onClick="goToTasks"
+
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/white"
+
+            android:drawableTop="@drawable/task_a"
+            android:textSize="15sp"
+            android:textColor="@color/purple"
+            android:fontFamily="sans-serif-medium"
+            />
+
+        <Button
+            android:id="@+id/btnNews"
+            android:text="Рассылка"
+            android:onClick="goToNews"
+
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/news_p"
+            android:textSize="15sp"
+            android:textColor="@color/purple"
+            android:fontFamily="sans-serif-medium"
+            />
+
+        <Button
+            android:id="@+id/btnBudget"
+            android:text="@string/budget"
+            android:onClick="goToLists"
+
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/finance_p"
+            android:textSize="15sp"
+            android:textColor="@color/purple"
+            android:fontFamily="sans-serif-medium"
+            />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

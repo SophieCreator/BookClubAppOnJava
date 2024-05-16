@@ -17,7 +17,52 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".AdminListsMeetings"
+            android:exported="false" />
+        <activity
+            android:name=".AdminAllTasks"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMyTask"
+            android:exported="false" />
+        <activity
+            android:name=".AdminMoreAboutBudget"
+            android:exported="false" />
+        <activity
+            android:name=".AdminBudgetExpenseList"
+            android:exported="false" />
+        <activity
+            android:name=".AdminExpenseEdit"
+            android:exported="false" />
+        <activity
+            android:name=".AdminExpenseDetails"
+            android:exported="false" />
+        <activity
+            android:name=".AdminAddExpense"
+            android:exported="false" />
+        <activity
+            android:name=".AdminIncomeEdit"
+            android:exported="false" />
+        <activity
+            android:name=".AdminNews"
+            android:exported="false" />
+        <activity
+            android:name=".AdminTasks"
+            android:exported="false" />
+        <activity
+            android:name=".AdminIncomeDetails"
+            android:exported="false" />
+        <activity
+            android:name=".AdminAddIncome"
+            android:exported="false" />
+        <activity
+            android:name=".AdminBudgetIncomeList"
+            android:exported="false" />
+        <activity
             android:name=".AdminListsBooks"
+            android:exported="false" />
+        <activity
+            android:name=".AdminListsUsers"
             android:exported="false" />
         <activity
             android:name=".UserProfile"

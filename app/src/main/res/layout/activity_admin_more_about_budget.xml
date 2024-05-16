@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminMoreAboutBudget"
+    android:background="@drawable/gradient2"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:padding="30dp">
+
+        <!--
+        <com.github.mikephil.charting.charts.BarChart
+            android:layout_width=""
+            android:layout_height=""
+            -->
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="bottom"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="5dp"
+        android:background="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <Button
+            android:id="@+id/btnLists"
+            android:text="@string/lists"
+            android:onClick="goToLists"
+
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+            android:textColor="@color/purple"
+
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/list_p"
+            android:textSize="15sp"
+            android:fontFamily="sans-serif-medium"
+            app:cornerRadius="0dp"
+            />
+
+        <Button
+            android:id="@+id/btnTasks"
+            android:text="@string/tasks"
+            android:onClick="goToTasks"
+
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/white"
+
+            android:drawableTop="@drawable/task_a"
+            android:textSize="15sp"
+            android:textColor="@color/purple"
+            android:fontFamily="sans-serif-medium"
+            />
+
+        <Button
+            android:id="@+id/btnNews"
+            android:text="Рассылка"
+            android:onClick="goToNews"
+
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/news_p"
+            android:textSize="15sp"
+            android:textColor="@color/purple"
+            android:fontFamily="sans-serif-medium"
+            />
+
+        <Button
+            android:id="@+id/btnBudget"
+            android:text="@string/budget"
+            android:onClick="goToLists"
+
+            android:layout_weight="0.5"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/finance_a"
+            android:textSize="15sp"
+            android:textColor="@color/purple"
+            android:fontFamily="sans-serif-medium"
+            />
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

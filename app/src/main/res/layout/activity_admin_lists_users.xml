@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AdminListsBooks"
+    tools:context=".AdminListsUsers"
     android:background="@drawable/gradient2"
     >
 
@@ -14,7 +14,7 @@
         android:layout_height="50dp"
         android:background="@drawable/rounder"
         android:layout_marginTop="20dp"
-        android:id="@+id/bookSearch"
+        android:id="@+id/search"
         android:iconifiedByDefault="false"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
@@ -33,22 +33,22 @@
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookSearch"
+        app:layout_constraintTop_toBottomOf="@+id/search"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:orientation="vertical"
         >
-            <ScrollView
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 >
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    >
 
                 <LinearLayout
                     android:id="@+id/layout_header"
@@ -75,7 +75,7 @@
 
                         <ImageButton
                             android:id="@+id/btnBookList"
-                            android:src="@drawable/book_list_a"
+                            android:src="@drawable/book_list_p"
                             android:contentDescription="@string/book"
                             android:onClick="goToBookList"
 
@@ -106,7 +106,7 @@
 
                         <ImageButton
                             android:id="@+id/btnUserList"
-                            android:src="@drawable/user_list_p"
+                            android:src="@drawable/user_list_a"
                             android:contentDescription="@string/user"
                             android:onClick="goToUserList"
 
@@ -182,7 +182,54 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/BookList"
+                    android:id="@+id/Action"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    android:layout_marginBottom="20dp"
+                    >
+
+                    <Button
+                        android:id="@+id/btnMyProfile"
+                        android:text="Мой профиль"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:layout_marginEnd="2dp"
+                        android:padding="20dp"
+
+                        android:backgroundTint="#ECD7F6"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/purple"
+                        />
+
+                    <Button
+                        android:id="@+id/btnAddAdmin"
+                        android:text="Добавить админа"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:layout_marginStart="2dp"
+                        android:padding="20dp"
+
+                        android:backgroundTint="#ECD7F6"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:fontFamily="sans-serif-medium"
+                        app:strokeWidth="1dp"
+                        app:strokeColor="@color/purple"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/UserList"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -196,7 +243,7 @@
                         android:layout_centerInParent="true"/>
 
                     <TextView
-                        android:id="@+id/no_books"
+                        android:id="@+id/no_users"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Нет книг"
@@ -206,35 +253,17 @@
                         />
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/book_list_recycler_view"
+                        android:id="@+id/user_list_recycler_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:visibility="gone"
                         />
 
                 </LinearLayout>
-                </LinearLayout>
-    </ScrollView>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/btnAddBook"
-        android:src="@drawable/plus"
-
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.5"
-        android:padding="15dp"
-        android:background="@drawable/rounder"
-
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-
-        android:backgroundTint="@color/purple"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="30dp"
-        android:contentDescription="button"
-        />
 
     <LinearLayout
         android:id="@+id/navigation"
@@ -259,7 +288,7 @@
             android:layout_height="match_parent"
 
             android:textColor="@color/purple"
-            
+
             android:backgroundTint="@color/white"
             android:drawableTop="@drawable/list_a"
             android:textSize="15sp"
@@ -276,7 +305,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:backgroundTint="@color/white"
-            
+
             android:drawableTop="@drawable/task_p"
             android:textSize="15sp"
             android:textColor="@color/purple"

@@ -85,6 +85,7 @@ public class AdminAddIncome extends AppCompatActivity {
                 Intent intent = new Intent(AdminAddIncome.this, AdminBudgetIncomeList.class);
                 startActivity(intent);
                 finish();
+
             }
         }, new Response.ErrorListener() {
             @Override

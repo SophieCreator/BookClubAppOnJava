@@ -18,6 +18,15 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".AdminMyProfile"
+            android:exported="false" />
+        <activity
+            android:name=".AdminAddAdmin"
+            android:exported="false" />
+        <activity
+            android:name=".AdminBookFilter"
+            android:exported="false" />
+        <activity
             android:name=".AdminUserStatistics"
             android:exported="false" />
         <activity

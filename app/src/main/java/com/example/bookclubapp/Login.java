@@ -99,7 +99,6 @@ public class Login extends AppCompatActivity {
                         finish();
                     }
                 } catch (JSONException e){
-                    
                     Toast.makeText(Login.this, e.getMessage(), Toast.LENGTH_LONG).show();
                 }
             }

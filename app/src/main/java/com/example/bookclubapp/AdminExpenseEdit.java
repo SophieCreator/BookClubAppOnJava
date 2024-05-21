@@ -158,6 +158,7 @@ public class AdminExpenseEdit extends AppCompatActivity {
                 intent.putExtra("expenseIsRegular", regularIsChecked);
                 startActivity(intent);
                 finish();
+
             }
         }, new Response.ErrorListener() {
             @Override

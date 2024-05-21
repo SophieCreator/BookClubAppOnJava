@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -19,21 +20,35 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
+import com.example.bookclubapp.helpers.BookListRecyclerViewHelper;
+import com.example.bookclubapp.models.Author;
+import com.example.bookclubapp.models.Book;
+import com.example.bookclubapp.models.BookCard;
+import com.example.bookclubapp.models.Genre;
 import com.example.bookclubapp.utils.MyVolleySingletonUtil;
+import com.example.bookclubapp.utils.SpacingItemDecoration;
 import com.google.android.material.textfield.TextInputEditText;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class AdminAddMeeting extends AppCompatActivity {
 
-    Button btnAddDate, btnAddBook, btnAdd;
+    Button btnAddDate, btnAddBook, btnAdd, book1, book2, book3, priceRec;
     ImageButton btnBack;
     TextInputEditText place, time, price;
     private RequestQueue mRequestQueue;
+    List<BookCard> bookRec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,8 +62,14 @@ public class AdminAddMeeting extends AppCompatActivity {
         place = findViewById(R.id.place);
         time = findViewById(R.id.time);
         price = findViewById(R.id.price);
+        book1 = findViewById(R.id.book1);
+        book2 = findViewById(R.id.book2);
+        book3 = findViewById(R.id.book3);
+        priceRec = findViewById(R.id.priceRec);
 
-        mRequestQueue =  MyVolleySingletonUtil.getInstance(AdminAddMeeting.this).getRequestQueue();
+        bookRec = new ArrayList<>();
+
+        mRequestQueue = MyVolleySingletonUtil.getInstance(AdminAddMeeting.this).getRequestQueue();
 
         String oldPlace = getIntent().getStringExtra("place");
         String oldPrice = getIntent().getStringExtra("price");
@@ -58,13 +79,19 @@ public class AdminAddMeeting extends AppCompatActivity {
         String bookName = getIntent().getStringExtra("bookName");
         String bookAuthors = getIntent().getStringExtra("bookAuthors");
 
+        //getBookRec();
+        book1.setText("Пикник на обочине");
+        book2.setText("Убить Пересмешника");
+        book3.setText("Понедельник начинается в субботу");
+        priceRec.setText("400");
+
         place.setText(oldPlace);
         price.setText(oldPrice);
-        if (oldDate != null){
+        if (oldDate != null) {
             btnAddDate.setText(oldDate);
         }
         time.setText(oldTime);
-        if (bookName != null){
+        if (bookName != null) {
             btnAddBook.setText(bookName);
         }
 
@@ -80,7 +107,7 @@ public class AdminAddMeeting extends AppCompatActivity {
                     @Override
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
                         String neededMonth = String.valueOf(month);
-                        if (neededMonth.length() == 1){
+                        if (neededMonth.length() == 1) {
                             neededMonth = "0" + neededMonth;
                         }
                         btnAddDate.setText(String.valueOf(year) + "-" + neededMonth + "-" + String.valueOf(dayOfMonth));
@@ -123,7 +150,7 @@ public class AdminAddMeeting extends AppCompatActivity {
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void addMeeting(String bookId){
+    public void addMeeting(String bookId) {
         String placeText = place.getText().toString();
         String priceText = price.getText().toString();
         String timeText = time.getText().toString();
@@ -142,7 +169,7 @@ public class AdminAddMeeting extends AppCompatActivity {
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(AdminAddMeeting.this, error.toString(), Toast.LENGTH_LONG).show();
             }
-        }){
+        }) {
             @Nullable
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
@@ -156,6 +183,60 @@ public class AdminAddMeeting extends AppCompatActivity {
         };
 
         mRequestQueue.add(request);
-
     }
+
+    public void getBookRec() {
+
+        JsonArrayRequest jsonArrayRequest
+                = new JsonArrayRequest(Request.Method.POST, "http://192.168.43.3:9080/app/bookCard/getRec", null, new Response.Listener<JSONArray>() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onResponse(JSONArray response) {
+                Log.d("THIS_BOOK IS", String.valueOf(response));
+
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        JSONObject responseObject = response.getJSONObject(i);
+                        JSONObject book = responseObject.getJSONObject("book");
+                        JSONArray authors = responseObject.getJSONArray("authors");
+                        JSONArray genres = responseObject.getJSONArray("genres");
+
+                        Log.d("THIS_BOOK_OBJECT IS", String.valueOf(book));
+                        Log.d("THIS_AUTHORS_OBJECT IS", String.valueOf(authors));
+                        Log.d("THIS_GENRE_OBJECT IS", String.valueOf(genres));
+
+                        Book theBook = new Book(book.getInt("book_id"), book.getString("name"), book.getInt("pages"), book.getDouble("litres_rating"), book.getDouble("live_lib_rating"));
+                        List<Author> theAuthors = new ArrayList<>();
+                        for (int k = 0; k < authors.length(); k++) {
+                            JSONObject theAuthor = authors.getJSONObject(k);
+                            theAuthors.add(new Author(theAuthor.getInt("author_id"), theAuthor.getString("name")));
+                        }
+                        List<Genre> theGenres = new ArrayList<>();
+                        for (int k = 0; k < genres.length(); k++) {
+                            JSONObject theGenre = genres.getJSONObject(k);
+                            theGenres.add(new Genre(theGenre.getInt("genre_id"), theGenre.getString("name")));
+                        }
+                        BookCard bookCard = new BookCard(theBook, theAuthors, theGenres);
+                        Log.d("THIS_BOOK_CARD", String.valueOf(bookCard));
+
+                        bookRec.add(bookCard);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(AdminAddMeeting.this, "Something went wrong", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                volleyError.printStackTrace();
+                Log.i("Book", volleyError.toString());
+                Toast.makeText(AdminAddMeeting.this, "Failed to get books", Toast.LENGTH_LONG).show();
+            }
+        }) {
+        };
+        mRequestQueue.add(jsonArrayRequest);
+    }
+
 }

@@ -158,7 +158,6 @@ public class AdminAllTasks extends AppCompatActivity {
                 SpacingItemDecoration spacingItemDecoration = new SpacingItemDecoration(30);
                 recyclerView.addItemDecoration(spacingItemDecoration);
                 recyclerView.setAdapter(adapter);
-
             }
         }, new Response.ErrorListener() {
             @Override

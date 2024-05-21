@@ -133,6 +133,15 @@ public class AdminListsUsers extends AppCompatActivity {
         // вешаем прослушиватели на все кнопки (как вариант, их можно выделить в отдельные функции)
         // ________________________________________________________________________
 
+        btnAddAdmin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminListsUsers.this, AdminAddAdmin.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         btnLists.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

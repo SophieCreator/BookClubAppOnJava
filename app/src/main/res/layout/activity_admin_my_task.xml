@@ -70,7 +70,7 @@
 
         </LinearLayout>
 
-        <SearchView
+        <android.widget.SearchView
             android:id="@+id/taskSearch"
             android:layout_width="match_parent"
             android:layout_height="50dp"
@@ -78,7 +78,7 @@
             android:layout_marginBottom="20dp"
             android:iconifiedByDefault="false"
             >
-        </SearchView>
+        </android.widget.SearchView>
 
         <ScrollView
             android:layout_width="match_parent"

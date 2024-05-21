@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminUserStatistics"
+    android:background="@drawable/gradient2"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingBottom="20dp"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/layout_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="5dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:src="@drawable/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/back"
+                android:background="@android:color/transparent"
+                android:layout_gravity="center"
+                android:layout_marginEnd="5dp"
+                android:padding="15dp"
+                />
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Предпочтения"
+                android:textSize="30sp"
+                android:layout_marginEnd="50dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/layout"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Только у участников клуба:"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:textOff="OFF"
+                android:textOn="ON"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounder"
+            android:padding="20dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="vertical"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Любимые жанры"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                >
+            </TextView>
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:id="@+id/genreChart"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            >
+
+        </com.github.mikephil.charting.charts.PieChart>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Только у участников клуба:"
+                android:layout_marginLeft="10dp"
+                android:textSize="16sp"
+                android:fontFamily="sans-serif-medium"
+                />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/author"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:textOff="OFF"
+                android:textOn="ON"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounder"
+            android:padding="20dp"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Любимые авторы"
+                android:fontFamily="sans-serif-medium"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                >
+            </TextView>
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/authorChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp">
+
+            </com.github.mikephil.charting.charts.PieChart>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounder"
+            android:padding="20dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Топ любимых книг"
+                android:textSize="20sp"
+                android:textColor="@color/purple"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif-medium"
+                android:layout_marginBottom="10dp"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/book1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="книга 1"
+                android:textSize="20sp"
+                android:textColor="@color/purple"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="10dp"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/book2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="книга 1"
+                android:textSize="20sp"
+                android:textColor="@color/purple"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="10dp"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/book3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="книга 1"
+                android:textSize="20sp"
+                android:textColor="@color/purple"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="10dp"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/book4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="книга 1"
+                android:textSize="20sp"
+                android:textColor="@color/purple"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="10dp"
+                >
+            </TextView>
+
+            <TextView
+                android:id="@+id/book5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="книга 1"
+                android:textSize="20sp"
+                android:textColor="@color/purple"
+                android:background="@android:color/transparent"
+                android:fontFamily="sans-serif-light"
+                android:layout_marginBottom="10dp"
+                >
+            </TextView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

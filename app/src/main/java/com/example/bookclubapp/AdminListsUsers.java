@@ -60,7 +60,7 @@ public class AdminListsUsers extends AppCompatActivity {
     private Button btnMyProfile, btnAddAdmin;
 
     // объявляем TextView
-    private TextView txtNoUsers;
+    private TextView txtNoUsers, more;
 
     // объявляем InputView/TextInputEditText
 
@@ -70,7 +70,7 @@ public class AdminListsUsers extends AppCompatActivity {
     private SearchView searchView;
     private RecyclerView.Adapter adapter;
     private RequestQueue mRequestQueue;
-    AnyChartView chartView;
+    private AnyChartView chartView;
 
     // объявляем использующиеся списки, в том числе моделей
     private List<User> userList;
@@ -104,6 +104,7 @@ public class AdminListsUsers extends AppCompatActivity {
 
         // TextView
         txtNoUsers = findViewById(R.id.no_users);
+        more = findViewById(R.id.more);
 
         // InputView/TextInputEditText
 
@@ -116,6 +117,7 @@ public class AdminListsUsers extends AppCompatActivity {
         mRequestQueue =  MyVolleySingletonUtil.getInstance(AdminListsUsers.this).getRequestQueue();
 
         chartView = findViewById(R.id.userChart);
+        setupChartView();
 
         // инициализируем использующиеся списки
         userList = new ArrayList<>();
@@ -126,7 +128,6 @@ public class AdminListsUsers extends AppCompatActivity {
         // ________________________________________________________________________
 
         getUsers();
-        setupChartView();
 
         // ________________________________________________________________________
         // вешаем прослушиватели на все кнопки (как вариант, их можно выделить в отдельные функции)
@@ -205,6 +206,16 @@ public class AdminListsUsers extends AppCompatActivity {
             }
         });
 
+        more.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminListsUsers.this, AdminUserStatistics.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+
     }
 
     public void setupChartView(){
@@ -212,22 +223,27 @@ public class AdminListsUsers extends AppCompatActivity {
 
         List<String> genres = new ArrayList<>();
         List<Integer> count = new ArrayList<>();
-        genres.add("classic");
-        genres.add("horror");
-        genres.add("fantasy");
-        count.add(15);
-        count.add(10);
+        genres.add("Триллер");
+        genres.add("Фантастика");
+        genres.add("Ужасы");
+        genres.add("Классика");
+        genres.add("Детектив");
+
+        count.add(3);
+        count.add(2);
         count.add(1);
+        count.add(3);
+        count.add(4);
 
         List<DataEntry> input = new ArrayList<>();
         for (int i = 0; i < genres.size(); i++){
             input.add(new ValueDataEntry(genres.get(i), count.get(i)));
         }
         pie.data(input);
-        pie.title("Любимые жанры");
+        pie.title("Любимые жанры пользователей");
+
         chartView.setChart(pie);
     }
-
 
     public void getUsers(){
         Log.d("THIS_USER", "I'M IN getUsers");

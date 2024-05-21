@@ -9,7 +9,7 @@
     android:background="@drawable/gradient2"
     >
 
-    <SearchView
+    <android.widget.SearchView
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@drawable/rounder"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/scroll"
         >
-    </SearchView>
+    </android.widget.SearchView>
 
 
     <LinearLayout

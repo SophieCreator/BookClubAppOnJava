@@ -139,7 +139,6 @@ public class AdminAddBook extends AppCompatActivity {
         Log.d("THIS_LIVELIB", bookLivelibText);
         authors.add(bookAuthor.getText().toString());
 
-
         for(int i = 0; i < authorList.getChildCount(); i++) {
             View view = authorList.getChildAt(i);
             TextInputEditText author = (TextInputEditText) view.findViewById(R.id.bookAuthor);
@@ -175,36 +174,15 @@ public class AdminAddBook extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 HashMap<String, String> params = new HashMap<String, String>();
                 params.put("name", bookNameText);
-
-                String authorFormat = "[";
-                for(int i = 0; i < authors.size(); i++){
-                    authorFormat = authorFormat + "\"" + authors.get(i) + "\"";
-                    if (i != authors.size() - 1){
-                        authorFormat += ",";
-                    }
-                }
-                authorFormat += "]";
-                Log.d("THIS_FORMAT", authorFormat);
-
-                String genreFormat = "[";
-                for(int i = 0; i < genresInput.size(); i++){
-                    genreFormat = genreFormat + "\"" + genresInput.get(i) + "\"";
-                    if (i != genresInput.size() - 1){
-                        genreFormat += ",";
-                    }
-                }
-                genreFormat += "]";
-                Log.d("THIS_FORMAT", genreFormat);
-
-                params.put("authors", authorFormat);
-                params.put("genres", genreFormat);
+                String authorInput = authors.toString().replace("[", "").replace("]", "");
+                params.put("authors", authorInput);
+                params.put("genres", genresInput.toString().replace("[", "").replace("]", ""));
                 params.put("pages", bookPagesText);
                 params.put("litres_rating", bookLitresText);
                 params.put("live_lib_rating", bookLivelibText);
                 return params;
             }
         };
-
         mRequestQueue.add(request);
 
     }

@@ -80,6 +80,13 @@ public class AdminListsBooks extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(AdminListsBooks.this));
 
+        btnAddBook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminListsBooks.this, AdminAddBook.class);
+                startActivity(intent);
+            }
+        });
         btnBudget.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

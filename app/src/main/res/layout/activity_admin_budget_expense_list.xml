@@ -70,7 +70,7 @@
 
         </LinearLayout>
 
-        <SearchView
+        <android.widget.SearchView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@drawable/rounder"
@@ -78,7 +78,7 @@
             android:id="@+id/expenseSearch"
             android:iconifiedByDefault="false"
             >
-        </SearchView>
+        </android.widget.SearchView>
 
         <ScrollView
             android:layout_width="match_parent"

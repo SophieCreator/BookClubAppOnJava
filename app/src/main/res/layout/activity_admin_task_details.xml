@@ -1,11 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    tools:context=".AdminTaskDetails"
+    android:background="@drawable/gradient2"
+    android:padding="30dp"
+    >
 
     <LinearLayout
-        android:id="@+id/userItemLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+    <LinearLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/layout"
+        >
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:src="@drawable/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/back"
+            android:onClick="goToBudget"
+            android:background="@android:color/transparent"
+            android:layout_gravity="left"
+            android:layout_marginEnd="5dp"
+            android:padding="15dp"
+            />
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Задача"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginEnd="50dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -22,33 +76,11 @@
         tools:ignore="MissingConstraints"
         >
 
-        <TextView
-            android:id="@+id/userAdmin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:fontFamily="sans-serif-light"
-            android:textColor="@color/purple"
-            android:text="Администратор"
-            android:layout_gravity="center"
-            />
-
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:fontFamily="sans-serif-light"
-            android:textColor="@color/purple"
-            android:text="Имя"
-            android:layout_gravity="center"
-            android:layout_marginBottom="10dp"
-            />
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+
             >
 
             <ImageView
@@ -58,13 +90,13 @@
             </ImageView>
 
             <TextView
-                android:id="@+id/user_login"
+                android:id="@+id/name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@color/purple"
-                android:text="Логин"
+                android:text="Название"
                 android:layout_gravity="center"
                 />
         </LinearLayout>
@@ -82,13 +114,13 @@
             </ImageView>
 
             <TextView
-                android:id="@+id/user_email"
+                android:id="@+id/text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/purple"
-                android:text="Почта"
+                android:text="Текст"
                 android:layout_gravity="center"
                 />
         </LinearLayout>
@@ -97,7 +129,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:id="@+id/user_header"
+            android:layout_marginBottom="20dp"
             >
 
             <ImageView
@@ -107,57 +139,50 @@
             </ImageView>
 
             <TextView
-
+                android:id="@+id/deadline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/purple"
-                android:text="Любимое:"
+                android:text="Дедлайн"
                 android:layout_gravity="center"
                 />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/user_favourite_books"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:fontFamily="sans-serif-light"
             android:textColor="@color/purple"
-            android:text="книги"
-            android:layout_gravity="left"
-            android:layout_marginLeft="46dp"
-            android:layout_marginBottom="10dp"
+            android:text="Взять задачу:"
             />
-
-        <TextView
-            android:id="@+id/user_favourite_authors"
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/choose"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:fontFamily="sans-serif-light"
-            android:textColor="@color/purple"
-            android:text="авторы"
-            android:layout_gravity="left"
-            android:layout_marginLeft="46dp"
-            android:layout_marginBottom="10dp"
+            android:checked="false"
+            android:textOff="OFF"
+            android:textOn="ON"
+            android:layout_marginBottom="30dp"
             />
 
-        <TextView
-            android:id="@+id/user_favourite_genres"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:fontFamily="sans-serif-light"
-            android:textColor="@color/purple"
-            android:text="жанры"
-            android:layout_gravity="left"
-            android:layout_marginLeft="46dp"
-            android:layout_marginBottom="10dp"
+            android:paddingVertical="18dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="Редактировать"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-medium"
             />
-
     </LinearLayout>
 
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

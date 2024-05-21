@@ -16,6 +16,7 @@ import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.example.bookclubapp.AdminTaskDetails;
 import com.example.bookclubapp.R;
 import com.example.bookclubapp.models.Task;
 
@@ -47,22 +48,20 @@ public class TaskListRecyclerViewHelper extends RecyclerView.Adapter<TaskListRec
         holder.taskName.setText(task.getTask_name());
         holder.taskText.setText(String.valueOf(task.getTask_text()));
         holder.taskDeadline.setText(task.getDeadline().toString());
-        /*
+
         holder.taskItemLayout.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 // Toast.makeText(context, "You clicked: " + task.getTask_id(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, AdminTaskDetails.class);
-                intent.putExtra("taskId", String.valueOf(task.getTask_id()));
-                intent.putExtra("taskName", task.getName());
-                intent.putExtra("taskText", String.valueOf(task.getText()));
-                intent.putExtra("taskDeadline", String.valueOf(task.getDate_get()));
+                intent.putExtra("id", String.valueOf(task.getTask_id()));
+                intent.putExtra("name", task.getTask_name());
+                intent.putExtra("text", String.valueOf(task.getTask_text()));
+                intent.putExtra("deadline", String.valueOf(task.getDeadline().toString()));
                 context.startActivity(intent);
             }
         });
-
-    */
 
     }
 

@@ -42,7 +42,7 @@
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-medium"
                 android:textColor="@color/purple"
-                android:text="Название дохода"
+                android:text="Название"
                 android:layout_gravity="center"
                 />
         </LinearLayout>
@@ -66,7 +66,7 @@
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/purple"
-                android:text="Сумма р"
+                android:text="Текст"
                 android:layout_gravity="center"
                 />
         </LinearLayout>
@@ -90,7 +90,7 @@
                 android:textSize="20sp"
                 android:fontFamily="sans-serif-light"
                 android:textColor="@color/purple"
-                android:text="дата"
+                android:text="Дедлайн"
                 android:layout_gravity="center"
                 />
         </LinearLayout>

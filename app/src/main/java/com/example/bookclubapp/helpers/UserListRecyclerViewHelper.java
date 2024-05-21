@@ -2,6 +2,7 @@ package com.example.bookclubapp.helpers;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Build;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -45,7 +46,7 @@ public class UserListRecyclerViewHelper extends RecyclerView.Adapter<UserListRec
         // объявляем view из user_list
         // ________________________________________________________________________
 
-        public TextView userName, userEmail, userLogin, userFavouriteBooks, userFavouriteAuthors, userFavouriteGenres;
+        public TextView userName, userEmail, userLogin, userFavouriteBooks, userFavouriteAuthors, userFavouriteGenres, userAdmin;
         private LinearLayout userItemLayout, userHeaderLayout;
         public UserListViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -54,6 +55,7 @@ public class UserListRecyclerViewHelper extends RecyclerView.Adapter<UserListRec
             // находим view из user_list
             // ________________________________________________________________________
 
+            userAdmin = itemView.findViewById(R.id.userAdmin);
             userName = itemView.findViewById(R.id.user_name);
             userLogin = itemView.findViewById(R.id.user_login);
             userEmail = itemView.findViewById(R.id.user_email);
@@ -83,6 +85,10 @@ public class UserListRecyclerViewHelper extends RecyclerView.Adapter<UserListRec
         holder.userLogin.setText(user.getLogin());
         holder.userEmail.setText(user.getEmail());
 
+        String is_admin = user.getIs_admin();
+        if(Objects.equals(is_admin, "0")){
+            holder.userAdmin.setVisibility(View.GONE);
+        }
 
         // ________________________________________________________________________
         // отображаем поле с текстом, если данные не пустые

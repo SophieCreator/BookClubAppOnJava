@@ -142,6 +142,15 @@ public class AdminListsUsers extends AppCompatActivity {
             }
         });
 
+        btnMyProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminListsUsers.this, AdminMyProfile.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         btnLists.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

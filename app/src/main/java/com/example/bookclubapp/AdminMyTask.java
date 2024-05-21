@@ -85,6 +85,15 @@ public class AdminMyTask extends AppCompatActivity {
             }
         });
 
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminMyTask.this, AdminAddTask.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -136,7 +145,9 @@ public class AdminMyTask extends AppCompatActivity {
                                 date,
                                 responseObject.getString("is_done"));
                         Log.d("THIS_INCOME", String.valueOf(task));
-                        taskList.add(task);
+                        if (responseObject.getInt("user_id") == 4){
+                            taskList.add(task);
+                        }
 
                     } catch (JSONException e){
                         e.printStackTrace();

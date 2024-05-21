@@ -44,7 +44,7 @@ import java.util.Map;
 public class AdminAllTasks extends AppCompatActivity {
 
     private ImageButton btnAdd;
-    Button btnAllTasks;
+    Button btnAllTasks, btnMyTasks;
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private SearchView searchView;
@@ -69,6 +69,7 @@ public class AdminAllTasks extends AppCompatActivity {
         progressBar = findViewById(R.id.get_not_progress_bar);
         searchView = findViewById(R.id.taskSearch);
         btnAllTasks = findViewById(R.id.btnAllTasks);
+        btnMyTasks = findViewById(R.id.btnMyTasks);
         // for recycler view:
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(AdminAllTasks.this));
@@ -82,10 +83,19 @@ public class AdminAllTasks extends AppCompatActivity {
             throw new RuntimeException(e);
         }
 
-        btnAllTasks.setOnClickListener(new View.OnClickListener() {
+        btnMyTasks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminAllTasks.this, AdminAllTasks.class);
+                Intent intent = new Intent(AdminAllTasks.this, AdminMyTask.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminAllTasks.this, AdminAddTask.class);
                 startActivity(intent);
                 finish();
             }

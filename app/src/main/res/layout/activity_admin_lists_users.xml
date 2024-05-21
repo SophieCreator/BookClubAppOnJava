@@ -181,6 +181,13 @@
                     </LinearLayout>
                 </LinearLayout>
 
+                <com.anychart.AnyChartView
+                    android:id="@+id/userChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                </com.anychart.AnyChartView>
+
                 <LinearLayout
                     android:id="@+id/Action"
                     android:layout_width="match_parent"

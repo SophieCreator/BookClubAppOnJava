@@ -14,6 +14,8 @@ android {
         versionCode = 1
         versionName = "1.0"
 
+        multiDexEnabled = true;
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -39,6 +41,8 @@ dependencies {
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation ("com.github.AnyChart:AnyChart-Android:1.1.2")
+    implementation("androidx.multidex:multidex:2.0.1")
     implementation(libs.volley)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)

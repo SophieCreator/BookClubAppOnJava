@@ -23,6 +23,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 //import com.example.bookclubapp.helpers.UserListRecyclerViewHelper;
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
+import com.anychart.charts.Pie;
 import com.example.bookclubapp.helpers.UserListRecyclerViewHelper;
 import com.example.bookclubapp.models.Author;
 import com.example.bookclubapp.models.Book;
@@ -65,6 +70,7 @@ public class AdminListsUsers extends AppCompatActivity {
     private SearchView searchView;
     private RecyclerView.Adapter adapter;
     private RequestQueue mRequestQueue;
+    AnyChartView chartView;
 
     // объявляем использующиеся списки, в том числе моделей
     private List<User> userList;
@@ -109,9 +115,18 @@ public class AdminListsUsers extends AppCompatActivity {
         searchView = findViewById(R.id.search);
         mRequestQueue =  MyVolleySingletonUtil.getInstance(AdminListsUsers.this).getRequestQueue();
 
+        chartView = findViewById(R.id.userChart);
+
         // инициализируем использующиеся списки
         userList = new ArrayList<>();
         Log.d("THIS_USER", "I'M ININICIALIZED");
+
+        // ________________________________________________________________________
+        // объявляем функции, связанные с запросами (у нас - отображение списка)
+        // ________________________________________________________________________
+
+        getUsers();
+        setupChartView();
 
         // ________________________________________________________________________
         // вешаем прослушиватели на все кнопки (как вариант, их можно выделить в отдельные функции)
@@ -167,13 +182,6 @@ public class AdminListsUsers extends AppCompatActivity {
         });
 
         // ________________________________________________________________________
-        // объявляем функции, связанные с запросами (у нас - отображение списка)
-        // ________________________________________________________________________
-
-        getUsers();
-
-
-        // ________________________________________________________________________
         // вешаем прослушиватель на поиск
         // ________________________________________________________________________
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -197,6 +205,27 @@ public class AdminListsUsers extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void setupChartView(){
+        Pie pie = AnyChart.pie();
+
+        List<String> genres = new ArrayList<>();
+        List<Integer> count = new ArrayList<>();
+        genres.add("classic");
+        genres.add("horror");
+        genres.add("fantasy");
+        count.add(15);
+        count.add(10);
+        count.add(1);
+
+        List<DataEntry> input = new ArrayList<>();
+        for (int i = 0; i < genres.size(); i++){
+            input.add(new ValueDataEntry(genres.get(i), count.get(i)));
+        }
+        pie.data(input);
+        pie.title("Любимые жанры");
+        chartView.setChart(pie);
     }
 
 

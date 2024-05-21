@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminAddMeeting"
+    android:background="@drawable/gradient2"
+    android:paddingLeft="30dp"
+    android:paddingRight="30dp"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    >
+    <LinearLayout
+        android:id="@+id/all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:orientation="vertical"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        >
+
+        <LinearLayout
+            android:id="@+id/layout_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:src="@drawable/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/back"
+                android:onClick="goToBudget"
+                android:background="@android:color/transparent"
+                android:layout_gravity="left"
+                android:layout_marginEnd="5dp"
+                android:padding="15dp"
+                />
+
+            <TextView
+                android:id="@+id/header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Добавить встречу"
+                android:textSize="26sp"
+                android:gravity="bottom|center"
+                android:layout_marginEnd="40dp"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:paddingTop="5dp"
+            android:background="@drawable/rounder"
+            app:layout_constraintTop_toBottomOf="@+id/IncomeOrExpense"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+                <Button
+                    android:id="@+id/btnAddBook"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="16sp"
+                    android:text="Книга"
+                    android:gravity="left"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1dp"
+                    >
+                </Button>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="Место"
+
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/place"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnAddDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textSize="16sp"
+                    android:text="Дата"
+                    android:gravity="left"
+                    android:textColor="@color/black"
+                    android:backgroundTint="@color/white"
+                    android:fontFamily="sans-serif-light"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="1dp"
+                    >
+                </Button>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="Время (формат: 00:00)"
+
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="Стоимость"
+
+                    app:boxCornerRadiusBottomEnd="30dp"
+                    app:boxCornerRadiusBottomStart="30dp"
+                    app:boxCornerRadiusTopEnd="30dp"
+                    app:boxCornerRadiusTopStart="30dp">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/price"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingVertical="18dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:text="Добавить"
+                android:textSize="18sp"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

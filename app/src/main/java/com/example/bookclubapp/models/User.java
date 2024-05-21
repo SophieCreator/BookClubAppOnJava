@@ -26,6 +26,12 @@ public class User {
         this.favouriteAuthors = favouriteAuthors;
     }
 
+    public User(int user_id, String name, String email){
+        this.user_id = user_id;
+        this.name = name;
+        this.email = email;
+    }
+
     public String getVisited_meetings() {
         return visited_meetings;
     }

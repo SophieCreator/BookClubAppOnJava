@@ -40,6 +40,7 @@ import java.util.Map;
 
 public class AdminMyTask extends AppCompatActivity {
 
+    private Button btnNews, btnTasks, btnBudget, btnLists;
     private ImageButton btnAdd;
     Button btnAllTasks;
     private RecyclerView recyclerView;
@@ -59,6 +60,10 @@ public class AdminMyTask extends AppCompatActivity {
         txtNoTasks = findViewById(R.id.no_tasks);
         btnAdd = findViewById(R.id.btnAdd);
 
+        btnNews = findViewById(R.id.btnNews);
+        btnTasks = findViewById(R.id.btnTasks);
+        btnBudget = findViewById(R.id.btnBudget);
+        btnLists = findViewById(R.id.btnLists);
         recyclerView = findViewById(R.id.task_list_recycler_view);
         mRequestQueue =  MyVolleySingletonUtil.getInstance(AdminMyTask.this).getRequestQueue();
         progressBar = findViewById(R.id.get_not_progress_bar);
@@ -91,6 +96,31 @@ public class AdminMyTask extends AppCompatActivity {
                 Intent intent = new Intent(AdminMyTask.this, AdminAddTask.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        btnBudget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminMyTask.this, AdminBudgetIncomeList.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminMyTask.this, AdminNews.class);
+                startActivity(intent);
+            }
+        });
+
+        btnLists.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminMyTask.this, AdminListsBooks.class);
+                startActivity(intent);
             }
         });
 

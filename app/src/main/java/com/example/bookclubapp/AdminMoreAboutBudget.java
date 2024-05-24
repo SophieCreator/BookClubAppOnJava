@@ -1,10 +1,12 @@
 package com.example.bookclubapp;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,11 +48,11 @@ import java.util.List;
 
 public class AdminMoreAboutBudget extends AppCompatActivity {
 
+    ImageButton btnBack;
     BarChart monthChart;
     List<String> XValues = Arrays.asList("Доходы", "Расходы", "Прибыль");
     List<Income> incomeList = new ArrayList<>();
     List<Expense> expenseList = new ArrayList<>();
-    TextView view1, view2;
     private RequestQueue mRequestQueue;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,30 +63,29 @@ public class AdminMoreAboutBudget extends AppCompatActivity {
         monthChart.getAxisRight().setDrawLabels(false);
         mRequestQueue =  MyVolleySingletonUtil.getInstance(AdminMoreAboutBudget.this).getRequestQueue();
 
-        view1 = findViewById(R.id.view1);
-        view2 = findViewById(R.id.view2);
+        btnBack = findViewById(R.id.btnBack);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminMoreAboutBudget.this, AdminBudgetIncomeList.class);
+                startActivity(intent);
+            }
+        });
 
         getIncome();
-        Log.d("THIS_CAT_SUM", (String) view2.getText());
         getExpense();
 
         ArrayList<BarEntry> entries = new ArrayList<>();
 
-        Float expense = Float.valueOf((String) view2.getText());
-        //Float income = Float.valueOf((String) view2.getText());
 
-        Float plus = expense;
-        if (plus < 0){
-            plus = 0F;
-        }
-
-        entries.add(new BarEntry(0, expense));
-        entries.add(new BarEntry(1, expense));
-        entries.add(new BarEntry(2, plus));
+        entries.add(new BarEntry(0, 10000F));
+        entries.add(new BarEntry(1, 6000));
+        entries.add(new BarEntry(2, 4000));
 
         YAxis yAxis = monthChart.getAxisLeft();
         yAxis.setAxisMaximum(0F);
-        yAxis.setAxisMaximum(100F);
+        yAxis.setAxisMaximum(10050F);
         yAxis.setAxisLineWidth(2F);
         yAxis.setAxisLineColor(Color.BLACK);
         yAxis.setLabelCount(10);
@@ -101,27 +102,7 @@ public class AdminMoreAboutBudget extends AppCompatActivity {
         monthChart.getXAxis().setGranularity(1f);
         monthChart.getXAxis().setGranularityEnabled(true);
 
-        view1.setVisibility(View.GONE);
-        view2.setVisibility(View.GONE);
-
     }
-
-    public Float getExpenseSum(String sum){
-        Log.d("THIS_SUMMMM", sum);
-        view2.setText(sum);
-        Log.d("THIS_SUMMMM_EEEEE", (String) view2.getText());
-        return Float.valueOf(sum);
-    }
-
-    /*
-    public Float getIncomeSum(String sum){
-        Log.d("THIS_SUMMMM", sum);
-        view1.setText(sum);
-        Log.d("THIS_SUMMMM_EEEEE", (String) view1.getText());
-        return Float.valueOf(sum);
-    }
-
-     */
 
     public void getIncome(){
 
@@ -156,8 +137,7 @@ public class AdminMoreAboutBudget extends AppCompatActivity {
                 for (Income income : incomeList){
                     sum += income.getAmount();
                 }
-                //Log.d("THIS_TRRRR", sum.toString());
-                //getIncomeSum(sum.toString());
+                Log.d("THE_SUM_I_IS", sum.toString());
             }
         }, new Response.ErrorListener() {
             @Override
@@ -207,8 +187,7 @@ public class AdminMoreAboutBudget extends AppCompatActivity {
                 for (Expense expense : expenseList){
                     sum += expense.getSum();
                 }
-                Log.d("THIS_SUM_IS", sum.toString());
-                getExpenseSum(sum.toString());
+                Log.d("THE_SUM_E_IS", sum.toString());
 
             }
         }, new Response.ErrorListener() {

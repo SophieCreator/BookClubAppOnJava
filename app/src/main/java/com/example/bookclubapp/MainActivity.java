@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
 
         new Timer().schedule(new TimerTask(){
             public void run() {
-                startActivity(new Intent(MainActivity.this, AdminListsUsers.class));
+                startActivity(new Intent(MainActivity.this, AdminListsBooks.class));
                 finish();
 
                 Log.d("MainActivity:", "onCreate: waiting 5 seconds for MainActivity... loading PrimaryActivity.class");

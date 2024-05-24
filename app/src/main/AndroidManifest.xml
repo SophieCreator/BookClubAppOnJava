@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:name="androidx.multidex.MultiDexApplication"
@@ -17,6 +18,12 @@
         android:theme="@style/Theme.BookClubApp"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".AdminMeetingDetails"
+            android:exported="false" />
+        <activity
+            android:name=".AdminBookDetails"
+            android:exported="false" />
         <activity
             android:name=".AdminAddTask"
             android:exported="false" />

@@ -49,7 +49,7 @@ public class User {
         for (int i = 0; i < favouriteBooks.size(); i++){
             bookList = bookList + favouriteBooks.get(i).getName();
             if (i != favouriteBooks.size() - 1){
-                bookList = bookList + " ,";
+                bookList = bookList + ", ";
             }
         }
         return bookList;
@@ -68,7 +68,7 @@ public class User {
         for (int i = 0; i < favouriteAuthors.size(); i++){
             authorList = authorList + favouriteAuthors.get(i).getName();
             if (i != favouriteAuthors.size() - 1){
-                authorList = authorList + " ,";
+                authorList = authorList + ", ";
             }
         }
         return authorList;

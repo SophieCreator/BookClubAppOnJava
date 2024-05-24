@@ -26,28 +26,21 @@
     </android.widget.SearchView>
 
 
-    <LinearLayout
-        android:id="@+id/scroll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"
-        android:orientation="vertical"
-        >
         <ScrollView
+            android:id="@+id/scroll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
             >
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 >
 
                 <LinearLayout
@@ -55,23 +48,15 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginBottom="20dp"
                     >
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:orientation="horizontal"
                         android:layout_marginBottom="8dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent">
+                        >
 
                         <ImageButton
                             android:id="@+id/btnBookList"
@@ -123,18 +108,13 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
                         android:orientation="horizontal"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintBottom_toBottomOf="parent">
+                        >
 
                         <ImageButton
                             android:id="@+id/btnTestList"
                             android:src="@drawable/test_p"
                             android:contentDescription="@string/book"
-                            android:onClick="goToTestList"
 
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -182,6 +162,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/chart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/rounder"
@@ -230,7 +211,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:gravity="center_horizontal"
                     android:layout_marginBottom="20dp"
                     >
 
@@ -306,7 +286,6 @@
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>
-    </LinearLayout>
 
 
     <LinearLayout

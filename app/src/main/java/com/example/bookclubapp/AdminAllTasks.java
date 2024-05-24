@@ -43,6 +43,7 @@ import java.util.Map;
 
 public class AdminAllTasks extends AppCompatActivity {
 
+    private Button btnNews, btnTasks, btnBudget, btnLists;
     private ImageButton btnAdd;
     Button btnAllTasks, btnMyTasks;
     private RecyclerView recyclerView;
@@ -60,6 +61,11 @@ public class AdminAllTasks extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_all_tasks);
+
+        btnNews = findViewById(R.id.btnNews);
+        btnTasks = findViewById(R.id.btnTasks);
+        btnBudget = findViewById(R.id.btnBudget);
+        btnLists = findViewById(R.id.btnLists);
 
         txtNoTasks = findViewById(R.id.no_tasks);
         btnAdd = findViewById(R.id.btnAdd);
@@ -82,6 +88,33 @@ public class AdminAllTasks extends AppCompatActivity {
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
+
+
+        btnBudget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminAllTasks.this, AdminBudgetIncomeList.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnNews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminAllTasks.this, AdminNews.class);
+                startActivity(intent);
+            }
+        });
+
+        btnLists.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminAllTasks.this, AdminListsBooks.class);
+                startActivity(intent);
+            }
+        });
+
 
         btnMyTasks.setOnClickListener(new View.OnClickListener() {
             @Override

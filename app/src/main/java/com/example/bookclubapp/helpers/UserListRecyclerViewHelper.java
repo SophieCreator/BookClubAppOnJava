@@ -104,7 +104,7 @@ public class UserListRecyclerViewHelper extends RecyclerView.Adapter<UserListRec
             holder.userFavouriteAuthors.setText(user.getFavouriteAuthorsString());
         }
 
-        if (Objects.equals(user.getFavouriteAuthorsString(), "")){
+        if (Objects.equals(user.getFavouriteBooksString(), "")){
             holder.userFavouriteBooks.setVisibility(View.GONE);
         } else {
             holder.userFavouriteBooks.setText(user.getFavouriteBooksString());

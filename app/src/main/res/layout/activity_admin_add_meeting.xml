@@ -26,7 +26,6 @@
         android:layout_height="wrap_content"
 
         android:orientation="vertical"
-        android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +38,7 @@
             android:paddingVertical="10dp"
             android:paddingHorizontal="5dp"
             android:layout_marginBottom="10dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal"
             android:gravity="center"
             >
@@ -54,7 +53,7 @@
                 android:background="@android:color/transparent"
                 android:layout_gravity="left"
                 android:layout_marginEnd="5dp"
-                android:padding="15dp"
+                android:padding="10dp"
                 />
 
             <TextView
@@ -286,7 +285,7 @@
                 android:paddingVertical="18dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="30dp"
                 android:text="Добавить"
                 android:textSize="18sp"

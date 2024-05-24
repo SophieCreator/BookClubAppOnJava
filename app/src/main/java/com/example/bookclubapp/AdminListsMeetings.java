@@ -53,7 +53,7 @@ public class AdminListsMeetings extends AppCompatActivity {
 
     // объявляем все кнопки навигации
     private Button btnNews, btnTasks, btnBudget, btnLists;
-    private ImageButton btnBookList, btnMeetingList, btnUserList, btnTestList, btnPollList, btnRewardList;
+    private ImageButton btnBookList, btnMeetingList, btnUserList, btnTestList, btnPollList, btnRewardList, btnAdd;
 
     // объявляем остальные кнопки: добавление и тп
 
@@ -87,6 +87,7 @@ public class AdminListsMeetings extends AppCompatActivity {
         btnTasks = findViewById(R.id.btnTasks);
         btnBudget = findViewById(R.id.btnBudget);
         btnLists = findViewById(R.id.btnLists);
+        btnAdd = findViewById(R.id.btnAdd);
 
         btnBookList = findViewById(R.id.btnBookList);
         btnMeetingList = findViewById(R.id.btnMeetingList);
@@ -119,6 +120,14 @@ public class AdminListsMeetings extends AppCompatActivity {
         // вешаем прослушиватели на все кнопки (как вариант, их можно выделить в отдельные функции)
         // ________________________________________________________________________
 
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminListsMeetings.this, AdminAddMeeting.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         btnLists.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -246,8 +255,13 @@ public class AdminListsMeetings extends AppCompatActivity {
                         String month = monthNames[date.getMonth().getValue() - 1];
 
                         String datetime = date.getDayOfMonth() + " " + month + " в " + time.getHour() + ":" + time.getMinute();
-                        String is_passed = responseObject.getString("is_passed");
 
+                        String is_passed;
+                        if (datetimeInput.isAfter(LocalDateTime.now())){
+                            is_passed = "0";
+                        } else {
+                            is_passed = "1";
+                        }
                         int price = responseObject.getInt("price");
                         String book = responseObject.getString("book");
 

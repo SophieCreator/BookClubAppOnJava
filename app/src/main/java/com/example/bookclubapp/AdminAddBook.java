@@ -45,6 +45,7 @@ import java.util.Map;
 public class AdminAddBook extends AppCompatActivity {
 
     Button btnAddAuthor, btnAddGenre, btnAdd;
+    ImageButton back;
     LinearLayout authorList, genreList;
     TextInputEditText bookName, bookAuthor, bookPages, bookLitres, bookLivelib;
     private RequestQueue mRequestQueue;
@@ -63,6 +64,7 @@ public class AdminAddBook extends AppCompatActivity {
         bookPages = findViewById(R.id.bookPages);
         bookLitres = findViewById(R.id.bookLitres);
         bookLivelib = findViewById(R.id.bookLivelib);
+        back = findViewById(R.id.btnBack);
 
         bookAuthor = findViewById(R.id.bookMainAuthor);
         btnAdd = findViewById(R.id.btnAdd);
@@ -75,6 +77,15 @@ public class AdminAddBook extends AppCompatActivity {
         genres.add("Без жанра");
         getGenres();
 
+        back.setOnClickListener(new View.OnClickListener() {
+
+                public void onClick(View v) {
+                    Intent intent = new Intent(AdminAddBook.this, AdminListsBooks.class);
+                    startActivity(intent);
+                    finish();
+                }
+
+        });
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

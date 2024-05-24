@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminBookDetails"
+    android:background="@drawable/gradient2"
+    android:padding="30dp">
+
+    <LinearLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/layout"
+        >
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:src="@drawable/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/back"
+            android:onClick="goToBudget"
+            android:background="@android:color/transparent"
+            android:layout_gravity="left"
+            android:layout_marginEnd="5dp"
+            android:padding="15dp"
+            />
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Книга"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginEnd="50dp"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/layout"
+            />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="20dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:background="@drawable/rounder"
+
+        app:layout_constraintBottom_toTopOf="@+id/btnDelete"
+        >
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Книга"
+            android:textSize="25sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="sans-serif-medium"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/point">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/authors"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Автор"
+                android:layout_gravity="center"
+                android:textSize="22sp"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/genreLayout"
+            android:layout_marginBottom="15dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/point">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/genres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:text="Жанры"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dp"
+            >
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/point">
+            </ImageView>
+
+            <TextView
+                android:id="@+id/pages"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textColor="@color/purple"
+                android:text="Cтраницы"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingBottom="25dp"
+            >
+
+            <LinearLayout
+                android:id="@+id/rating1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                >
+
+                <TextView
+                    android:id="@+id/litres"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:textColor="@color/purple"
+                    android:text="4.5"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/litres">
+                </ImageView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/rating2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:id="@+id/livelib"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:textColor="@color/purple"
+                    android:text="4.4"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/livelib">
+                </ImageView>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="18dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="Редактировать"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif-medium"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Удалить"
+
+        android:textSize="20sp"
+        android:textColor="@color/purple"
+        android:layout_marginBottom="30dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="sans-serif-light"
+
+        android:layout_marginTop="15dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

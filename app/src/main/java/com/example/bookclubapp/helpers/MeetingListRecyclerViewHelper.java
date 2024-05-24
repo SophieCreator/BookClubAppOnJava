@@ -1,6 +1,8 @@
 package com.example.bookclubapp.helpers;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,8 +10,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookclubapp.AdminMeetingDetails;
 import com.example.bookclubapp.R;
 import com.example.bookclubapp.models.Meeting;
 
@@ -74,9 +78,13 @@ public class MeetingListRecyclerViewHelper extends RecyclerView.Adapter<MeetingL
         // ________________________________________________________________________
 
         holder.meeting_book.setText(meeting.getBook());
-        holder.meeting_time.setText(meeting.getDatetime());
+        String dateInput = meeting.getDate().toString() + " в 16:00";
+        holder.meeting_time.setText(dateInput);
         holder.meeting_place.setText(meeting.getPlace());
-        holder.meeting_price.setText(String.valueOf(meeting.getPrice()));
+        String priceInfo = String.valueOf(meeting.getPrice()) + " p";
+        holder.meeting_price.setText(priceInfo);
+
+
         if (Objects.equals(meeting.getIs_passed(), "1")){
             holder.meeting_passed.setText("Встреча прошла");
         } else {
@@ -101,20 +109,23 @@ public class MeetingListRecyclerViewHelper extends RecyclerView.Adapter<MeetingL
         // переход на карточку по клику и проброс данных
         // ________________________________________________________________________
 
-        /*
-        holder.meetingItemLayout.setOnClickListener(new View.OnClickListener() {
+
+        holder.itemLayout.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 // Toast.makeText(context, "You clicked: " + meeting.getMeeting_id(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, AdminMeetingDetails.class);
-                intent.putExtra("meetingId", String.valueOf(meeting.getMeeting().getMeeting_id()));
-                intent.putExtra("meetingName", meeting.getMeeting().getName());
-                intent.putExtra("meetingLogin", meeting.getMeeting().getLogin());
-                intent.putExtra("meetingEmail", meeting.getMeeting().getEmail());
-                intent.putExtra("meetingBooks", String.valueOf(meeting.getFavouriteBooksString()));
-                intent.putExtra("meetingAuthors", String.valueOf(meeting.getFavouriteBooksString()));
-                intent.putExtra("meetingGenres", String.valueOf(meeting.getFavouriteGenresString()));
+                String dateInput = meeting.getDate().toString() + " в 16:00";
+
+                intent.putExtra("meetingId", String.valueOf(meeting.getMeeting_id()));
+                intent.putExtra("name", meeting.getBook());
+                intent.putExtra("time", meeting.getTime());
+                intent.putExtra("date", dateInput);
+                intent.putExtra("place", meeting.getPlace());
+                String priceInfo = String.valueOf(meeting.getPrice()) + " p";
+                intent.putExtra("price", priceInfo);
+                intent.putExtra("users", String.valueOf(meeting.getUserList()));
                 context.startActivity(intent);
 
 
@@ -122,7 +133,7 @@ public class MeetingListRecyclerViewHelper extends RecyclerView.Adapter<MeetingL
 
 
         });
-         */
+
     }
 }
 

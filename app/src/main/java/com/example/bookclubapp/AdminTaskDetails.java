@@ -55,6 +55,7 @@ public class AdminTaskDetails extends AppCompatActivity {
 
         String nameText = getIntent().getStringExtra("name");
         String taskId = getIntent().getStringExtra("taskId");
+        Log.d("THIS_TASK_ID", taskId);
         String textText = getIntent().getStringExtra("text");
         String deadlineText = getIntent().getStringExtra("deadline");
 
@@ -76,8 +77,6 @@ public class AdminTaskDetails extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
                     taskSetMine(taskId);
-                } else {
-                    taskUnSet(taskId);
                 }
             }
         });
@@ -88,8 +87,9 @@ public class AdminTaskDetails extends AppCompatActivity {
         String url = "http://192.168.43.3:9080/app/task/take";
 
         Map<String, String> params = new HashMap<String, String>();
-        params.put("user_id", String.valueOf(4));
         params.put("task_id", task_id);
+        params.put("user_id", "4");
+        Log.d("THIS_REQUEST_TASK_ID", task_id);
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST, url, new JSONObject(params), new Response.Listener<JSONObject>() {
             @Override
@@ -118,6 +118,7 @@ public class AdminTaskDetails extends AppCompatActivity {
     }
 
 
+    /*
     public void taskUnSet(String task_id){
 
         String url = "http://192.168.43.3:9080/app/task/untake";
@@ -151,5 +152,7 @@ public class AdminTaskDetails extends AppCompatActivity {
         });
         mRequestQueue.add(jsonObjectRequest);
     }
+
+     */
 
 }

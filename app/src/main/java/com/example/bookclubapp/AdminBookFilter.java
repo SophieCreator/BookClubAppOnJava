@@ -110,13 +110,13 @@ public class AdminBookFilter extends AppCompatActivity {
                 String sizeMaxText = sizeMax.getText().toString();
                 String genresText = genresFiltered.toString();
 
-                if(score.getText() == null){
+                if(score.getText() == null || score.getText().toString().isEmpty()){
                     scoreText = "-1";
                 }
-                if(sizeMin.getText() == null){
+                if(sizeMin.getText() == null || sizeMin.getText().toString().isEmpty()){
                     sizeMinText = "-1";
                 }
-                if(sizeMax.getText() == null){
+                if(sizeMax.getText() == null || sizeMax.getText().toString().isEmpty()){
                     sizeMaxText = "-1";
                 }
                 if(genresFiltered.isEmpty()){

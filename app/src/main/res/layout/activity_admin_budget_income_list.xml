@@ -193,7 +193,7 @@
             android:layout_height="match_parent"
             android:backgroundTint="@color/white"
 
-            android:drawableTop="@drawable/task_a"
+            android:drawableTop="@drawable/task_p"
             android:textSize="15sp"
             android:textColor="@color/purple"
             android:fontFamily="sans-serif-medium"

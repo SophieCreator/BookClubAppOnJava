@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookclubapp.AdminBookDetails;
 import com.example.bookclubapp.R;
 import com.example.bookclubapp.models.Book;
 import com.example.bookclubapp.models.BookCard;
@@ -39,8 +40,8 @@ public class BookListRecyclerViewHelper extends RecyclerView.Adapter<BookListRec
     }
 
     public class BookListViewHolder extends RecyclerView.ViewHolder{
-        public TextView bookId, bookName, bookAuthors, litresRating, livelibRating;
-        private LinearLayout bookItemLayout;
+        public TextView bookId, bookName, bookAuthors, litresRating, livelibRating, genres;
+        private LinearLayout bookItemLayout, genreLayout;
         LinearLayout rating1, rating2;
         public BookListViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,10 +80,10 @@ public class BookListRecyclerViewHelper extends RecyclerView.Adapter<BookListRec
             holder.livelibRating.setText(livelib_rating.toString());
         }
 
+
         holder.bookName.setText(book.getBook().getName());
         holder.bookAuthors.setText(book.getAuthorsString());
 
-        /*
         holder.bookItemLayout.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -90,16 +91,15 @@ public class BookListRecyclerViewHelper extends RecyclerView.Adapter<BookListRec
                 // Toast.makeText(context, "You clicked: " + book.getBook_id(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, AdminBookDetails.class);
                 intent.putExtra("bookId", String.valueOf(book.getBook().getBook_id()));
-                intent.putExtra("bookName", book.getBook().getName());
-                intent.putExtra("bookAuthors", String.valueOf(book.getAuthors()));
-                intent.putExtra("bookAuthors", String.valueOf(book.getGenres()));
-                intent.putExtra("litresRating", String.valueOf(book.getBook().getLitres_rating()));
-                intent.putExtra("livelibRating", String.valueOf(book.getBook().getLive_lib_rating()));
+                intent.putExtra("name", book.getBook().getName());
+                intent.putExtra("authors", String.valueOf(book.getAuthorsString()));
+                intent.putExtra("genres", String.valueOf(book.getGenresString()));
+                intent.putExtra("pages", String.valueOf(book.getBook().getPages()));
+                intent.putExtra("litres", String.valueOf(book.getBook().getLitres_rating()));
+                intent.putExtra("livelib", String.valueOf(book.getBook().getLive_lib_rating()));
                 context.startActivity(intent);
             }
         });
-
-         */
 
     }
 

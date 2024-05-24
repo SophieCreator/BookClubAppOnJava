@@ -40,7 +40,7 @@ import java.util.List;
 public class AdminBudgetIncomeList extends AppCompatActivity {
 
     private ImageButton btnAdd;
-    private Button btnExpenses, btnMore, btnTask;
+    private Button btnExpenses, btnMore, btnTask, btnLists;
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private SearchView searchView;
@@ -64,6 +64,7 @@ public class AdminBudgetIncomeList extends AppCompatActivity {
         searchView = findViewById(R.id.incomeSearch);
         btnMore = findViewById(R.id.btnMoreAboutBudget);
         btnTask = findViewById(R.id.btnTasks);
+        btnLists = findViewById(R.id.btnLists);
         // for recycler view:
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(AdminBudgetIncomeList.this));
@@ -76,6 +77,15 @@ public class AdminBudgetIncomeList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(AdminBudgetIncomeList.this, AdminBudgetExpenseList.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        btnLists.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AdminBudgetIncomeList.this, AdminListsBooks.class);
                 startActivity(intent);
                 finish();
             }

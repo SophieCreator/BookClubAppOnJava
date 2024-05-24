@@ -44,7 +44,18 @@ public class TaskListRecyclerViewHelper extends RecyclerView.Adapter<TaskListRec
     public void onBindViewHolder(@NonNull TaskListViewHolder holder, int position) {
         Task task = this.taskListItems.get(position);
 
-        holder.taskUser.setText(task.getLogin());
+        holder.hwoDoes.setVisibility(View.GONE);
+        /*
+
+        if (task.getUser_id() == -1){
+            holder.taskUser.setVisibility(View.GONE);
+        } else {
+            holder.taskUser.setText(task.getLogin());
+        }
+
+         */
+
+
         holder.taskName.setText(task.getTask_name());
         holder.taskText.setText(String.valueOf(task.getTask_text()));
         holder.taskDeadline.setText(task.getDeadline().toString());
@@ -55,7 +66,7 @@ public class TaskListRecyclerViewHelper extends RecyclerView.Adapter<TaskListRec
             public void onClick(View v) {
                 // Toast.makeText(context, "You clicked: " + task.getTask_id(), Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, AdminTaskDetails.class);
-                intent.putExtra("id", String.valueOf(task.getTask_id()));
+                intent.putExtra("taskId", String.valueOf(task.getTask_id()));
                 intent.putExtra("name", task.getTask_name());
                 intent.putExtra("text", String.valueOf(task.getTask_text()));
                 intent.putExtra("deadline", String.valueOf(task.getDeadline().toString()));
@@ -72,7 +83,7 @@ public class TaskListRecyclerViewHelper extends RecyclerView.Adapter<TaskListRec
 
     public class TaskListViewHolder extends RecyclerView.ViewHolder{
         public TextView taskId, taskName, taskText, taskDeadline, taskUser;
-        private LinearLayout taskItemLayout;
+        private LinearLayout taskItemLayout, hwoDoes;
         public TaskListViewHolder(@NonNull View itemView) {
             super(itemView);
             taskUser = itemView.findViewById(R.id.user);
@@ -80,6 +91,7 @@ public class TaskListRecyclerViewHelper extends RecyclerView.Adapter<TaskListRec
             taskText = itemView.findViewById(R.id.task_text);
             taskDeadline = itemView.findViewById(R.id.deadline);
             taskItemLayout = itemView.findViewById(R.id.taskItemLayout);
+            hwoDoes = itemView.findViewById(R.id.hwoDoes);
         }
     }
 }

@@ -1,5 +1,13 @@
 package com.example.bookclubapp;
+import android.Manifest;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +21,9 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -59,10 +70,17 @@ public class AdminListsBooks extends AppCompatActivity {
     String genresFiltered = "-2";
     List<BookCard> bookList = new ArrayList<>();
 
+    @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_lists_books);
+
+        if(ContextCompat.checkSelfPermission(AdminListsBooks.this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED){
+            ActivityCompat.requestPermissions(AdminListsBooks.this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, 101);
+        }
+
+        //makeNotification();
 
         btnAddBook = findViewById(R.id.btnAddBook);
 
@@ -87,21 +105,27 @@ public class AdminListsBooks extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(AdminListsBooks.this));
 
+
         if( getIntent().getStringExtra("score") != null){
             score = getIntent().getStringExtra("score");
         }
+        Log.d("THIS_FILTER_SCORE_IS", score);
 
         if(getIntent().getStringExtra("sizeMin") != null){
             sizeMin = getIntent().getStringExtra("sizeMin");
         }
+        Log.d("THIS_FILTER_SIZEMIN_IS", sizeMin);
 
         if(getIntent().getStringExtra("sizeMax") != null){
             sizeMax = getIntent().getStringExtra("sizeMax");
         }
+        Log.d("THIS_FILTER_SIZEMAX_IS", sizeMax);
 
         if(getIntent().getStringExtra("genresFiltered") != null){
             genresFiltered = getIntent().getStringExtra("genresFiltered");
         }
+        Log.d("THIS_FILTER_genresFiltered_IS", sizeMax);
+
 
         btnFilter.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,7 +160,7 @@ public class AdminListsBooks extends AppCompatActivity {
         btnTasks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminListsBooks.this, AdminTasks.class);
+                Intent intent = new Intent(AdminListsBooks.this, AdminMyTask.class);
                 startActivity(intent);
             }
         });
@@ -225,14 +249,17 @@ public class AdminListsBooks extends AppCompatActivity {
                     }
                 }
 
-                Log.d("THIS_LIIIST", bookList.toString());
-                Log.d("THIS_LIIIST_VALUE", genresFiltered);
+
+                Log.d("THIS_FILTER_IN_BOOKLIST", bookList.toString());
+                Log.d("THIS_FILTER_IN_GENRELIST", genresFiltered);
+
 
                 if (!Objects.equals(genresFiltered, "-2")){
-                    Log.d("THIS_LIIIST_IN", bookList.toString());
+                    Log.d("THIS_FILTER_IS_FILTERED", "IN");
                     if (!Objects.equals(genresFiltered, "-1")) {
-                        List<String> genresFilteredParsed = Collections.singletonList(genresFiltered);
-                        Log.d("THIS_genresFilteredParsed", genresFilteredParsed.toString());
+                        Log.d("THIS_FILTER_THERE_ARE_GENRES", "IN");
+                        List<String> genresFilteredParsed = Collections.singletonList(genresFiltered.replace("[", "").replace("]", ""));
+                        Log.d("THIS_FILTER_genresParsed", genresFilteredParsed.toString());
 
                         for (int i = 0; i < bookList.size(); i++) {
 
@@ -240,11 +267,13 @@ public class AdminListsBooks extends AppCompatActivity {
                             for (int k = 0; k < bookList.get(i).getGenres().size(); k++) {
                                 thisGenres.add(bookList.get(i).getGenres().get(k).getName());
                             }
+                            Log.d("THIS_FILTER_CURR_BOOK_GENRES", thisGenres.toString());
 
                             Boolean ok = false;
                             for (String target : genresFilteredParsed) {
                                 for (String thisGenre : thisGenres) {
                                     if (Objects.equals(target, thisGenre)) {
+                                        Log.d("THIS_FILTER_BOOK_PASSED", bookList.get(i).getBook().getName());
                                         ok = true;
                                     }
                                 }
@@ -255,39 +284,51 @@ public class AdminListsBooks extends AppCompatActivity {
                         }
                     }
 
-                    if (!Objects.equals(score, "-1")){
+
+                    Log.d("THIS_FILTER_ERRROR_SCORE", score);
+
+                    if (!Objects.equals(score, "-1") || !Objects.equals(score, "-2")){
+                        Log.d("THIS_FILTER_SCORE", "ISN'T EMPTY");
+
                         for(int i = 0; i < bookList.size(); i++){
                             BookCard bookCard = bookList.get(i);
-                            if (Double.valueOf(score) < (bookCard.getBook().getLitres_rating() + bookCard.getBook().getLive_lib_rating())/2){
+                            Log.d("THIS_FILTER_DOUBLE_SCORE", String.valueOf(Double.valueOf(score)));
+                            Log.d("THIS_FILTER_BOOK_SCORE", String.valueOf((bookCard.getBook().getLitres_rating() + bookCard.getBook().getLive_lib_rating())/2));
+                            if (Double.valueOf(score) < ((bookCard.getBook().getLitres_rating() + bookCard.getBook().getLive_lib_rating()))/2){
                                 bookList.remove(i);
                             }
                         }
                     }
 
-                    if (!Objects.equals(sizeMin, "-1")){
+                    if (!Objects.equals(sizeMin, "-1") || !Objects.equals(sizeMin, "-2")){
                         for(int i = 0; i < bookList.size(); i++){
                             BookCard bookCard = bookList.get(i);
+                            Log.d("THIS_FILTER_PAGES_THIS_BOOK", String.valueOf(bookCard.getBook().getPages()));
+                            Log.d("THIS_FILTER_PAGES_BOARD", sizeMin);
 
-                            if (Integer.valueOf(sizeMin) < bookCard.getBook().getPages()){
+                            if (Integer.valueOf(sizeMin) > bookCard.getBook().getPages()){
                                 bookList.remove(i);
                             }
                         }
                     }
 
-                    if (!Objects.equals(sizeMax, "-1")){
+                    if (!Objects.equals(sizeMax, "-1") || !Objects.equals(sizeMax, "-2")){
                         for(int i = 0; i < bookList.size(); i++){
                             BookCard bookCard = bookList.get(i);
 
-                            if (Integer.valueOf(sizeMax) > bookCard.getBook().getPages()){
+                            if (Integer.valueOf(sizeMax) < bookCard.getBook().getPages()){
                                 bookList.remove(i);
                             }
                         }
                     }
+
+
 
 
                 }
 
                 Log.d("THIS_LIIIST", bookList.toString());
+
 
                 adapter = new BookListRecyclerViewHelper(bookList, AdminListsBooks.this);
                 SpacingItemDecoration spacingItemDecoration = new SpacingItemDecoration(30);
@@ -309,5 +350,36 @@ public class AdminListsBooks extends AppCompatActivity {
         mRequestQueue.add(jsonArrayRequest);
     }
 
+    public void makeNotification(){
+        String channelLID = "CHANNEL";
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(getApplicationContext(), channelLID);
+        builder.setSmallIcon(R.drawable.notification_a);
+        builder.setContentTitle("Дедлайн по выполению задачи походит к концу!");
+        builder.setContentText("Выполни задачу");
+        builder.setAutoCancel(true);
+        builder.setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+        Intent intent = new Intent(getApplicationContext(), AdminMyTask.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_MUTABLE);
+
+        builder.setContentIntent(pendingIntent);
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            NotificationChannel notificationChannel = notificationManager.getNotificationChannel(channelLID);
+            if (notificationChannel == null){
+                int impportance = NotificationManager.IMPORTANCE_HIGH;
+                notificationChannel = new NotificationChannel(channelLID, "DESC", impportance);
+                notificationChannel.setLightColor(Color.GREEN);
+                notificationChannel.enableVibration(true);
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+        }
+
+        notificationManager.notify(0, builder.build());
+
+    }
 
 }

@@ -215,7 +215,7 @@
             android:padding="10dp"
 
             android:backgroundTint="@color/white"
-            android:drawableTop="@drawable/finance_a"
+            android:drawableTop="@drawable/finance_p"
             android:textSize="15sp"
             android:textColor="@color/purple"
             android:fontFamily="sans-serif-medium"

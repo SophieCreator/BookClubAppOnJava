@@ -1,5 +1,7 @@
 package com.example.bookclubapp;
 
+import static android.view.View.GONE;
+
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -7,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
 import android.widget.TextView;
@@ -74,6 +77,7 @@ public class AdminListsUsers extends AppCompatActivity {
 
     // объявляем использующиеся списки, в том числе моделей
     private List<User> userList;
+    LinearLayout chart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +109,7 @@ public class AdminListsUsers extends AppCompatActivity {
         // TextView
         txtNoUsers = findViewById(R.id.no_users);
         more = findViewById(R.id.more);
+        chart = findViewById(R.id.chart);
 
         // InputView/TextInputEditText
 
@@ -276,7 +281,7 @@ public class AdminListsUsers extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onResponse(JSONArray response) {
-                progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(GONE);
                 recyclerView.setVisibility(View.VISIBLE);
                 Log.d("THIS_RESPONSE IS", String.valueOf(response));
 
@@ -375,7 +380,7 @@ public class AdminListsUsers extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 volleyError.printStackTrace();
-                progressBar.setVisibility(View.GONE);
+                progressBar.setVisibility(GONE);
                 txtNoUsers.setVisibility(View.VISIBLE);
                 Log.i("User", volleyError.toString());
                 Toast.makeText(AdminListsUsers.this, "Failed to get users", Toast.LENGTH_LONG).show();

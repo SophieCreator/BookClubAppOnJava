@@ -31,7 +31,16 @@ public class Meeting {
         this.users = users;
     }
 
-
+    public String getUserList(){
+        String res = "";
+        for (int i = 0; i < users.size(); i++){
+            res += users.get(i).getLogin();
+            if (i != users.size() - 1){
+                res += ", ";
+            }
+        }
+        return res;
+    }
 
     public int getMeeting_id() {
         return meeting_id;

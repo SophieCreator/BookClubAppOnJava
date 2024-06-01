@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/AboutClub"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient2"
+    tools:context=".UserAboutClub">
+
+    <LinearLayout
+        android:id="@+id/layout_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="302dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="5dp"
+        android:paddingVertical="10dp"
+
+        app:layout_constraintBottom_toTopOf="@+id/btnHow1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="0dp"
+            android:gravity="center"
+            android:text="@string/aboutclub_a"
+            android:textColor="@color/purple"
+            android:textSize="30sp"
+
+            app:layout_constraintBottom_toTopOf="@+id/layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageAboutClub"
+        android:layout_width="0dp"
+
+        android:layout_height="0dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="364dp"
+        android:contentDescription="@string/aboutclub"
+        android:src="@drawable/aboutclub"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textAboutClub"
+        android:layout_width="403dp"
+        android:layout_height="125dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="248dp"
+        android:gravity="center"
+        android:text="@string/textaboutclub"
+        android:textColor="@color/black"
+
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnHow1"
+        android:layout_width="0dp"
+
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="9dp"
+        android:backgroundTint="@color/purple"
+        android:fontFamily="sans-serif-medium"
+        android:padding="20dp"
+        android:text="@string/how1"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnHow2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_header" />
+
+    <Button
+        android:id="@+id/btnHow2"
+        android:layout_width="0dp"
+
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="9dp"
+        android:backgroundTint="@color/purple"
+        android:fontFamily="sans-serif-medium"
+        android:padding="20dp"
+        android:text="@string/how2"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnHow3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHow1" />
+
+    <Button
+        android:id="@+id/btnHow3"
+        android:layout_width="0dp"
+
+        android:layout_height="0dp"
+        android:layout_marginStart="25dp"
+
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="127dp"
+        android:backgroundTint="@color/purple"
+        android:fontFamily="sans-serif-medium"
+        android:padding="20dp"
+        android:text="@string/how3"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnHow2" />
+
+    <LinearLayout
+        android:id="@+id/navigation"
+        android:layout_width="417dp"
+        android:layout_height="106dp"
+        android:background="@color/white"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageAboutClub">
+
+        <Button
+            android:id="@+id/btnAboutClub"
+            android:layout_width="14dp"
+            android:layout_height="match_parent"
+
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/list_p"
+
+            android:fontFamily="sans-serif-medium"
+
+            android:onClick="goToAboutClub"
+            android:text="О клубе"
+            android:textColor="@color/purple"
+            android:textSize="15sp"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btnMainWindow"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/task_a"
+            android:fontFamily="sans-serif-medium"
+
+            android:onClick="goToMainWindow"
+            android:text="Главная"
+            android:textColor="@color/purple"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnMeetings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/news_p"
+            android:fontFamily="sans-serif-medium"
+
+            android:onClick="goToMeetings"
+            android:padding="10dp"
+            android:text="Встречи"
+            android:textColor="@color/purple"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/finance_p"
+            android:fontFamily="sans-serif-medium"
+
+            android:onClick="goToProfile"
+            android:padding="10dp"
+            android:text="Профиль"
+            android:textColor="@color/purple"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,243 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MainWindow"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient2"
+    tools:context=".UserMainWindow">
+
+    <LinearLayout
+        android:id="@+id/layout_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="302dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="5dp"
+        android:paddingVertical="10dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="0dp"
+            android:gravity="center"
+            android:text="@string/textmainwindow"
+            android:textColor="@color/purple"
+            android:textSize="30sp"
+
+            app:layout_constraintBottom_toTopOf="@+id/layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="350dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="30dp"
+
+        android:background="@drawable/rounder"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingTop="5dp"
+        android:paddingRight="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_header">
+
+        <TextView
+            android:id="@+id/nextmeeting"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="Ближайшая встреча"
+            android:textColor="@color/purple"
+
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="358dp"
+        android:layout_height="322dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="30dp"
+
+        android:background="@drawable/rounder"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingTop="5dp"
+        android:paddingRight="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_header">
+
+        <TextView
+            android:id="@+id/timemeeting"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="Время:"
+            android:textColor="@color/purple"
+
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/bookmeeting"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="35dp"
+            android:gravity="center"
+            android:text="Книга встречи:"
+            android:textColor="@color/purple"
+
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/placemeeting"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="35dp"
+            android:gravity="center"
+            android:text="Место встречи:"
+            android:textColor="@color/purple"
+
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/placemeeting"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginTop="35dp"
+            android:gravity="center"
+            android:text="Стоимость:"
+            android:textColor="@color/purple"
+
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAddRecord"
+        android:layout_width="309dp"
+        android:layout_height="65dp"
+        android:paddingVertical="18dp"
+        android:text="Записаться"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="51dp"
+        tools:layout_editor_absoluteY="496dp" />
+
+    <LinearLayout
+        android:id="@+id/navigation"
+        android:layout_width="417dp"
+        android:layout_height="106dp"
+        android:background="@color/white"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnAboutClub"
+            android:layout_width="14dp"
+            android:layout_height="match_parent"
+
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/list_p"
+
+            android:fontFamily="sans-serif-medium"
+
+            android:onClick="goToAboutClub"
+            android:text="О клубе"
+            android:textColor="@color/purple"
+            android:textSize="15sp"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btnMainWindow"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/white"
+            android:drawableBottom="@drawable/mainbutton"
+            android:fontFamily="sans-serif-medium"
+
+            android:onClick="goToMainWindow"
+            android:textColor="@color/purple"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnMeetings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/list_p"
+            android:fontFamily="sans-serif-medium"
+
+            android:onClick="goToMeetings"
+            android:padding="10dp"
+            android:text="Встречи"
+            android:textColor="@color/purple"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/finance_p"
+            android:fontFamily="sans-serif-medium"
+
+            android:onClick="goToProfile"
+            android:padding="10dp"
+            android:text="Профиль"
+            android:textColor="@color/purple"
+            android:textSize="15sp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

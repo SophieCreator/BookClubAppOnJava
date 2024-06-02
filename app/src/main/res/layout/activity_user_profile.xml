@@ -75,7 +75,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="30dp">
+            android:layout_margin="0dp">
 
         <TextView
             android:layout_width="match_parent"
@@ -85,26 +85,29 @@
             android:fontFamily="sans-serif-light"
             android:textColor="@color/purple"
             android:text="Имя"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="0dp"
             >
 
         </TextView>
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnHow1"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="30dp">
 
-            android:layout_height="0dp"
-            android:layout_marginStart="25dp"
-
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="9dp"
-            android:backgroundTint="@color/purple"
-            android:fontFamily="sans-serif-medium"
-            android:padding="20dp"
-            android:text="@string/how1"
-            android:textSize="15sp"/>
+            <Button
+                android:id="@+id/btnMyRewards"
+                android:layout_width="308dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="51dp"
+                android:layout_marginBottom="0dp"
+                android:paddingVertical="18dp"
+                android:text="Мои награды"
+                android:textSize="18sp" />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -120,28 +123,280 @@
             android:text="Данные о встрече"
             android:paddingBottom="15dp"
             android:paddingTop="15dp"
-            android:background="@drawable/rounder"
+            android:background="@drawable/rounder_grey"
             android:paddingLeft="20dp"
             >
         </TextView>
 
-        <ImageButton
-            android:id="@+id/showmore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:backgroundTint="@color/white"
-            android:src="@drawable/showmore"
-            android:padding="20dp"
-            android:layout_marginTop="-10dp"
-            android:contentDescription="show more"
-            >
+            <ImageButton
+                android:id="@+id/showmore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="-10dp"
+                android:backgroundTint="@color/white"
+                android:contentDescription="show more"
+                android:padding="20dp"
+                android:src="@drawable/showmore">
 
-        </ImageButton>
+            </ImageButton>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="30dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounder_grey"
+                android:fontFamily="sans-serif-light"
+                android:paddingLeft="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="Номер телефона"
+                android:textColor="@color/purple"
+                android:textSize="20sp">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="30dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounder_grey"
+                android:fontFamily="sans-serif-light"
+                android:paddingLeft="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="Почта"
+                android:textColor="@color/purple"
+                android:textSize="20sp">
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/purple"
+                android:text="Любимые авторы"
+                android:layout_marginBottom="0dp"
+                >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="40dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounder"
+                android:fontFamily="sans-serif-light"
+                android:paddingLeft="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text=""
+                android:textColor="@color/purple"
+                android:textSize="20sp"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/purple"
+                android:text="Любимые книги"
+                android:layout_marginBottom="0dp"
+                >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="40dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounder"
+                android:fontFamily="sans-serif-light"
+                android:paddingLeft="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text=""
+                android:textColor="@color/purple"
+                android:textSize="20sp"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="0dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:fontFamily="sans-serif-light"
+                android:textColor="@color/purple"
+                android:text="Любимые жанры"
+                android:layout_marginBottom="0dp"
+                >
+            </TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="40dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/rounder"
+                android:fontFamily="sans-serif-light"
+                android:paddingLeft="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text=""
+                android:textColor="@color/purple"
+                android:textSize="20sp"></TextView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="30dp">
+
+            <Button
+                android:id="@+id/btnMyRewards"
+                android:layout_width="308dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="51dp"
+                android:layout_marginBottom="0dp"
+                android:paddingVertical="18dp"
+                android:text="Редактировать"
+                android:textSize="18sp" />
+        </LinearLayout>
     </LinearLayout>
+
     </ScrollView>
 
+    <LinearLayout
+        android:id="@+id/navigation"
+        android:layout_width="417dp"
+        android:layout_height="106dp"
+        android:background="@color/white"
+        android:gravity="bottom"
+        android:orientation="horizontal"
+        android:paddingBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/btnAboutClub"
+            android:layout_width="14dp"
+            android:layout_height="match_parent"
+
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/list_p"
+
+            android:fontFamily="sans-serif-medium"
+
+            android:onClick="goToAboutClub"
+            android:text="О клубе"
+            android:textColor="@color/purple"
+            android:textSize="15sp"
+            app:cornerRadius="0dp" />
+
+        <Button
+            android:id="@+id/btnMainWindow"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/news_a"
+            android:fontFamily="sans-serif-medium"
+
+            android:onClick="goToMainWindow"
+            android:padding="10dp"
+            android:text="Главная"
+            android:textColor="@color/purple"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnMeetings"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/point"
+            android:fontFamily="sans-serif-medium"
+
+            android:onClick="goToMeetings"
+            android:padding="10dp"
+            android:text="Встречи"
+            android:textColor="@color/purple"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/btnProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+
+            android:layout_weight="0.5"
+            android:backgroundTint="@color/white"
+            android:drawableTop="@drawable/user_list_p"
+            android:fontFamily="sans-serif-medium"
+
+            android:onClick="goToProfile"
+            android:padding="10dp"
+            android:text="Профиль"
+            android:textColor="@color/purple"
+            android:textSize="15sp" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

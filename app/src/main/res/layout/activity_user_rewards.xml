@@ -2,43 +2,46 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/AboutClub"
+    android:id="@+id/Poll"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient2"
-    tools:context=".UserAboutClub">
+    tools:context=".UserPoll">
 
     <LinearLayout
         android:id="@+id/layout_header"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="302dp"
-        android:orientation="horizontal"
-        android:paddingHorizontal="5dp"
         android:paddingVertical="10dp"
+        android:paddingHorizontal="5dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
 
-        app:layout_constraintBottom_toTopOf="@+id/btnHow1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:src="@drawable/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/back"
+            android:background="@android:color/transparent"
+            android:layout_gravity="left"
+            android:layout_marginEnd="5dp"
+            android:padding="15dp"
+            />
 
         <TextView
             android:id="@+id/header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginEnd="0dp"
-            android:gravity="center"
-            android:text="@string/aboutclub_a"
-            android:textColor="@color/purple"
-            android:textSize="30sp"
-
-            app:layout_constraintBottom_toTopOf="@+id/layout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_marginEnd="50dp"
+            android:gravity="bottom|center"
+            android:text="Мои достижения"
+            android:textSize="28sp" />
     </LinearLayout>
+
 
     <ImageView
         android:id="@+id/imageAboutClub"
@@ -50,83 +53,83 @@
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="364dp"
         android:contentDescription="@string/aboutclub"
-        android:src="@drawable/aboutclub"
+        android:src="@drawable/picrewards"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/textAboutClub"
-        android:layout_width="403dp"
-        android:layout_height="125dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="248dp"
-        android:gravity="center"
-        android:text="@string/textaboutclub"
-        android:textColor="@color/black"
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="373dp"
+        android:layout_height="151dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="212dp"
+        android:layout_marginEnd="30dp"
 
-        android:textSize="15sp"
+        android:background="@drawable/rounder"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingTop="5dp"
+        android:paddingRight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_header">
 
-    <Button
-        android:id="@+id/btnHow1"
-        android:layout_width="0dp"
+        <TextView
+            android:id="@+id/sherLOCK"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="Награда"
+            android:textColor="@color/purple"
 
-        android:layout_height="0dp"
-        android:layout_marginStart="25dp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="9dp"
-        android:backgroundTint="@color/purple"
-        android:fontFamily="sans-serif-medium"
-        android:padding="20dp"
-        android:text="@string/how1"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnHow2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_header" />
+        <TextView
+            android:id="@+id/rew1"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/rounder_grey"
+            android:gravity="center"
+            android:text="Описание"
+            android:textColor="@color/purple"
 
-    <Button
-        android:id="@+id/btnHow2"
-        android:layout_width="0dp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        android:layout_height="0dp"
-        android:layout_marginStart="25dp"
+        <TextView
+            android:id="@+id/rew2"
+            android:layout_width="101dp"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/rounder_grey"
+            android:gravity="center"
+            android:text="Скидка"
+            android:textColor="@color/purple"
 
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="9dp"
-        android:backgroundTint="@color/purple"
-        android:fontFamily="sans-serif-medium"
-        android:padding="20dp"
-        android:text="@string/how2"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnHow3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnHow1" />
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnHow3"
-        android:layout_width="0dp"
+    </LinearLayout>
 
-        android:layout_height="0dp"
-        android:layout_marginStart="25dp"
-
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="127dp"
-        android:backgroundTint="@color/purple"
-        android:fontFamily="sans-serif-medium"
-        android:padding="20dp"
-        android:text="@string/how3"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnHow2" />
 
     <LinearLayout
         android:id="@+id/navigation"
@@ -138,8 +141,7 @@
         android:paddingBottom="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageAboutClub">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/btnAboutClub"
@@ -160,7 +162,7 @@
 
         <Button
             android:id="@+id/btnMainWindow"
-            android:layout_width="25dp"
+            android:layout_width="2dp"
             android:layout_height="match_parent"
 
             android:layout_weight="0.5"
@@ -169,6 +171,7 @@
             android:fontFamily="sans-serif-medium"
 
             android:onClick="goToMainWindow"
+            android:padding="10dp"
             android:text="Главная"
             android:textColor="@color/purple"
             android:textSize="15sp" />
@@ -180,7 +183,7 @@
 
             android:layout_weight="0.5"
             android:backgroundTint="@color/white"
-            android:drawableTop="@drawable/list_p"
+            android:drawableTop="@drawable/point"
             android:fontFamily="sans-serif-medium"
 
             android:onClick="goToMeetings"

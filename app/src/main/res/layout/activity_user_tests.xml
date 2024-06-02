@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/MainWindow"
+    android:id="@+id/Tests"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient2"
-    tools:context=".UserMainWindow">
+    tools:context=".UserTests">
 
     <LinearLayout
         android:id="@+id/layout_header"
@@ -18,7 +18,6 @@
         android:paddingHorizontal="5dp"
         android:paddingVertical="10dp"
 
-        app:layout_constraintBottom_toTopOf="@+id/btnPool"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -30,7 +29,7 @@
             android:layout_gravity="center"
             android:layout_marginEnd="0dp"
             android:gravity="center"
-            android:text="@string/textmainwindow"
+            android:text="Тесты"
             android:textColor="@color/purple"
             android:textSize="30sp"
 
@@ -40,11 +39,10 @@
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
-
     <LinearLayout
-        android:id="@+id/layout"
-        android:layout_width="350dp"
-        android:layout_height="53dp"
+        android:id="@+id/layout1"
+        android:layout_width="371dp"
+        android:layout_height="200dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="30dp"
@@ -55,137 +53,72 @@
         android:paddingTop="5dp"
         android:paddingRight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_header">
 
         <TextView
-            android:id="@+id/nextmeeting"
+            android:id="@+id/test1"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
             android:gravity="center"
-            android:text="Ближайшая встреча"
+            android:text="Название теста"
             android:textColor="@color/purple"
 
-            android:textSize="25sp"
+            android:textSize="21sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ans1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="3dp"
+            android:gravity="center"
+            android:text="Количество вопросов:"
+            android:textColor="@color/purple"
+
+            android:textSize="19sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ans2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="3dp"
+            android:gravity="center"
+            android:text="Время на вопрос:"
+            android:textColor="@color/purple"
+
+            android:textSize="19sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnAddRecord"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="51dp"
+            android:layout_marginBottom="116dp"
+            android:paddingVertical="0dp"
+            android:text="Пройти тест"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout1"
-        android:layout_width="358dp"
-        android:layout_height="322dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="30dp"
-
-        android:background="@drawable/rounder"
-        android:orientation="vertical"
-        android:paddingLeft="30dp"
-        android:paddingTop="5dp"
-        android:paddingRight="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_header">
-
-        <TextView
-            android:id="@+id/timemeeting"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="left"
-            android:layout_marginTop="2dp"
-            android:gravity="center"
-            android:text="Время:"
-            android:textColor="@color/purple"
-
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/bookmeeting"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="left"
-            android:layout_marginTop="35dp"
-            android:gravity="center"
-            android:text="Книга встречи:"
-            android:textColor="@color/purple"
-
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/placemeeting"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="left"
-            android:layout_marginTop="35dp"
-            android:gravity="center"
-            android:text="Место встречи:"
-            android:textColor="@color/purple"
-
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/pricemeeting"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="left"
-            android:layout_marginTop="35dp"
-            android:gravity="center"
-            android:text="Стоимость:"
-            android:textColor="@color/purple"
-
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/btnAddRecord"
-        android:layout_width="308dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginEnd="51dp"
-        android:layout_marginBottom="170dp"
-        android:paddingVertical="18dp"
-        android:text="Записаться"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_header"
-        app:layout_constraintVertical_bias="0.992" />
-
-    <ImageButton
-        android:id="@+id/btnPool"
-        android:layout_width="63dp"
-        android:layout_height="57dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="104dp"
-
-        android:backgroundTint="@color/white"
-        android:padding="20dp"
-        android:src="@drawable/showmore"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_header">
-    </ImageButton>
 
     <LinearLayout
         android:id="@+id/navigation"

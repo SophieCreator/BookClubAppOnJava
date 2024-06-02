@@ -105,6 +105,17 @@
                 android:layout_marginEnd="51dp"
                 android:layout_marginBottom="0dp"
                 android:paddingVertical="18dp"
+                android:text="Посещенные встречи"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnMyRewards"
+                android:layout_width="308dp"
+                android:layout_height="68dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="51dp"
+                android:layout_marginBottom="0dp"
+                android:paddingVertical="18dp"
                 android:text="Мои награды"
                 android:textSize="18sp" />
         </LinearLayout>
@@ -120,7 +131,7 @@
             android:textSize="20sp"
             android:fontFamily="sans-serif-light"
             android:textColor="@color/purple"
-            android:text="Данные о встрече"
+            android:text="Данные о предстоящей встрече"
             android:paddingBottom="15dp"
             android:paddingTop="15dp"
             android:background="@drawable/rounder_grey"
@@ -377,7 +388,7 @@
 
             android:onClick="goToMeetings"
             android:padding="10dp"
-            android:text="Встречи"
+            android:text="Тесты"
             android:textColor="@color/purple"
             android:textSize="15sp" />
 

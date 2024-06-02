@@ -292,7 +292,7 @@
 
             android:onClick="goToMeetings"
             android:padding="10dp"
-            android:text="Встречи"
+            android:text="Тесты"
             android:textColor="@color/purple"
             android:textSize="15sp" />
 

@@ -2,150 +2,152 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/MainWindow"
+    android:id="@+id/UserTestOk"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient2"
-    tools:context=".UserMainWindow">
+    tools:context=".UserTestOk">
+
+
+    <ImageView
+        android:id="@+id/imageAboutClub"
+        android:layout_width="193dp"
+
+        android:layout_height="131dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="67dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="364dp"
+        android:contentDescription="@string/aboutclub"
+        android:src="@drawable/test"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <LinearLayout
-        android:id="@+id/layout_header"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="478dp"
-        android:orientation="horizontal"
-        android:paddingHorizontal="5dp"
-        android:paddingVertical="10dp"
+        android:id="@+id/layout1"
+        android:layout_width="335dp"
+        android:layout_height="272dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="210dp"
 
-        app:layout_constraintBottom_toTopOf="@+id/btnPool"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="145dp"
+        android:background="@drawable/rounder"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingTop="5dp"
+        android:paddingRight="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:id="@+id/recordmeeting"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
             android:layout_gravity="center"
-            android:layout_marginEnd="0dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="@string/textmainwindow"
+            android:text="Вопрос"
             android:textColor="@color/purple"
-            android:textSize="30sp"
 
-            app:layout_constraintBottom_toTopOf="@+id/layout"
+            android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ans1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="3dp"
+            android:gravity="center"
+            android:text="Ответ1"
+            android:textColor="@color/purple"
+
+            android:textSize="19sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ans2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="3dp"
+            android:gravity="center"
+            android:text="Ответ2"
+            android:textColor="@color/purple"
+
+            android:textSize="19sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ans3"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="3dp"
+            android:gravity="center"
+            android:text="Ответ3"
+            android:textColor="@color/purple"
+
+            android:textSize="19sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/ans4"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="left"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="3dp"
+            android:gravity="center"
+            android:text="Ответ4"
+            android:textColor="@color/purple"
+
+            android:textSize="19sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
     </LinearLayout>
 
-
     <LinearLayout
-        android:id="@+id/layout"
-        android:layout_width="350dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="30dp"
+        android:id="@+id/layout2"
+        android:layout_width="337dp"
+        android:layout_height="102dp"
 
         android:background="@drawable/rounder"
         android:orientation="vertical"
         android:paddingLeft="30dp"
         android:paddingTop="5dp"
         android:paddingRight="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_header">
+        tools:layout_editor_absoluteX="36dp"
+        tools:layout_editor_absoluteY="503dp">
 
         <TextView
-            android:id="@+id/nextmeeting"
+            android:id="@+id/answer"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="72dp"
             android:layout_gravity="center"
-            android:layout_marginTop="2dp"
+            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:text="Ближайшая встреча"
-            android:textColor="@color/purple"
-
-            android:textSize="25sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/layout1"
-        android:layout_width="358dp"
-        android:layout_height="322dp"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="80dp"
-        android:layout_marginEnd="30dp"
-
-        android:background="@drawable/rounder"
-        android:orientation="vertical"
-        android:paddingLeft="30dp"
-        android:paddingTop="5dp"
-        android:paddingRight="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_header">
-
-        <TextView
-            android:id="@+id/timemeeting"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="left"
-            android:layout_marginTop="2dp"
-            android:gravity="center"
-            android:text="Время:"
-            android:textColor="@color/purple"
-
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/bookmeeting"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="left"
-            android:layout_marginTop="35dp"
-            android:gravity="center"
-            android:text="Книга встречи:"
-            android:textColor="@color/purple"
-
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/placemeeting"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="left"
-            android:layout_marginTop="35dp"
-            android:gravity="center"
-            android:text="Место встречи:"
-            android:textColor="@color/purple"
-
-            android:textSize="22sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/pricemeeting"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_gravity="left"
-            android:layout_marginTop="35dp"
-            android:gravity="center"
-            android:text="Стоимость:"
+            android:text="Ответ верный!"
             android:textColor="@color/purple"
 
             android:textSize="22sp"
@@ -153,51 +155,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnAddRecord"
-        android:layout_width="308dp"
-        android:layout_height="68dp"
-        android:layout_marginStart="51dp"
-        android:layout_marginEnd="51dp"
-        android:layout_marginBottom="170dp"
-        android:paddingVertical="18dp"
-        android:text="Записаться"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_header"
-        app:layout_constraintVertical_bias="0.992" />
-
-    <ImageButton
-        android:id="@+id/btnPool"
-        android:layout_width="63dp"
-        android:layout_height="57dp"
-        android:layout_gravity="center"
-        android:layout_marginBottom="104dp"
-
-        android:backgroundTint="@color/white"
-        android:padding="20dp"
-        android:src="@drawable/showmore"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_header">
-    </ImageButton>
 
     <LinearLayout
         android:id="@+id/navigation"
         android:layout_width="417dp"
-        android:layout_height="106dp"
+        android:layout_height="0dp"
         android:background="@color/white"
         android:gravity="bottom"
         android:orientation="horizontal"
         android:paddingBottom="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout1">
 
         <Button
             android:id="@+id/btnAboutClub"

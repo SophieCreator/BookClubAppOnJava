@@ -10,12 +10,50 @@
     android:paddingTop="10dp"
     android:paddingRight="30dp"
     android:paddingBottom="10dp"
-    tools:context=".UserRegDone">
+    tools:context=".UserSherlock">
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="239dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginTop="13dp"
+
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="249dp"
+        android:background="@drawable/rounder"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingTop="5dp"
+        android:paddingRight="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/layout1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/sherLOCK"
+            android:layout_width="146dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:text="Получено достижение: sherLOCK!"
+            android:textColor="@color/purple"
+
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/layout1"
-        android:layout_width="331dp"
-        android:layout_height="0dp"
+        android:layout_width="335dp"
+        android:layout_height="357dp"
         android:layout_marginStart="30dp"
         android:layout_marginEnd="30dp"
 
@@ -28,7 +66,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/all">
+        app:layout_constraintTop_toBottomOf="@+id/layout">
 
         <TextView
             android:id="@+id/question1"
@@ -73,23 +111,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/all"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="332dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/layout1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
 
     </LinearLayout>

@@ -79,7 +79,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="3dp"
             android:gravity="center"
-            android:text="Фэнтези"
+            android:text="Жанр1"
             android:textColor="@color/purple"
 
             android:textSize="19sp"
@@ -95,7 +95,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="3dp"
             android:gravity="center"
-            android:text="Детектив"
+            android:text="Жанр2"
             android:textColor="@color/purple"
 
             android:textSize="19sp"
@@ -111,7 +111,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="3dp"
             android:gravity="center"
-            android:text="Драма"
+            android:text="Жанр3"
             android:textColor="@color/purple"
 
             android:textSize="19sp"
@@ -163,7 +163,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="3dp"
             android:gravity="center"
-            android:text="Мы, Замятин"
+            android:text="Книга1"
             android:textColor="@color/purple"
 
             android:textSize="18sp"
@@ -179,7 +179,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="3dp"
             android:gravity="center"
-            android:text="Солярис, Лем"
+            android:text="Книга2"
             android:textColor="@color/purple"
 
             android:textSize="18sp"
@@ -195,7 +195,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="3dp"
             android:gravity="center"
-            android:text="Тошнота, Сартр"
+            android:text="Книга3"
             android:textColor="@color/purple"
 
             android:textSize="18sp"
@@ -211,7 +211,7 @@
             android:layout_marginLeft="25dp"
             android:layout_marginTop="3dp"
             android:gravity="center"
-            android:text="Зов Ктулху, Лавкрафт"
+            android:text="Книга4"
             android:textColor="@color/purple"
 
             android:textSize="18sp"

@@ -36,6 +36,7 @@
             android:text="@string/out"
             android:textColor="@color/purple"
             android:drawableRight="@drawable/out"
+            android:onClick="goTo"
             app:layout_constraintEnd_toEndOf="parent"
             android:padding="15dp"
             android:layout_gravity="end"
@@ -98,7 +99,7 @@
             android:layout_margin="30dp">
 
             <Button
-                android:id="@+id/btnMyRewards"
+                android:id="@+id/btnMyMeetings"
                 android:layout_width="308dp"
                 android:layout_height="68dp"
                 android:layout_marginStart="25dp"
@@ -106,6 +107,7 @@
                 android:layout_marginBottom="0dp"
                 android:paddingVertical="18dp"
                 android:text="Посещенные встречи"
+                android:onClick="goToMyMeetings"
                 android:textSize="18sp" />
 
             <Button
@@ -117,6 +119,7 @@
                 android:layout_marginBottom="0dp"
                 android:paddingVertical="18dp"
                 android:text="Мои награды"
+                android:onClick="goToMyRewards"
                 android:textSize="18sp" />
         </LinearLayout>
 
@@ -147,6 +150,7 @@
                 android:layout_marginTop="-10dp"
                 android:backgroundTint="@color/white"
                 android:contentDescription="show more"
+                android:onClick="goToShowMoreMeeting"
                 android:padding="20dp"
                 android:src="@drawable/showmore">
 
@@ -317,7 +321,7 @@
             android:layout_margin="30dp">
 
             <Button
-                android:id="@+id/btnMyRewards"
+                android:id="@+id/btnEditProfile"
                 android:layout_width="308dp"
                 android:layout_height="68dp"
                 android:layout_marginStart="25dp"
@@ -325,6 +329,7 @@
                 android:layout_marginBottom="0dp"
                 android:paddingVertical="18dp"
                 android:text="Редактировать"
+                android:onClick="goToEditProfile"
                 android:textSize="18sp" />
         </LinearLayout>
     </LinearLayout>
@@ -377,7 +382,7 @@
             android:textSize="15sp" />
 
         <Button
-            android:id="@+id/btnMeetings"
+            android:id="@+id/btnTests"
             android:layout_width="0dp"
             android:layout_height="match_parent"
 
@@ -386,7 +391,7 @@
             android:drawableTop="@drawable/point"
             android:fontFamily="sans-serif-medium"
 
-            android:onClick="goToMeetings"
+            android:onClick="goToTests"
             android:padding="10dp"
             android:text="Тесты"
             android:textColor="@color/purple"

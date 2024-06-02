@@ -147,7 +147,7 @@
             android:textSize="15sp" />
 
         <Button
-            android:id="@+id/btnMeetings"
+            android:id="@+id/btnTests"
             android:layout_width="0dp"
             android:layout_height="match_parent"
 
@@ -156,7 +156,7 @@
             android:drawableTop="@drawable/point"
             android:fontFamily="sans-serif-medium"
 
-            android:onClick="goToMeetings"
+            android:onClick="goToTests"
             android:padding="10dp"
             android:text="Тесты"
             android:textColor="@color/purple"

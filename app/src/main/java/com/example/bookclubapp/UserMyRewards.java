@@ -20,7 +20,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
-import com.example.bookclubapp.models.Test;
+import com.example.bookclubapp.models.Reward;
 import com.example.bookclubapp.utils.MyVolleySingletonUtil;
 import com.example.bookclubapp.utils.SpacingItemDecoration;
 
@@ -31,13 +31,13 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserTests extends AppCompatActivity {
+public class UserMyRewards extends AppCompatActivity {
 
     private ImageButton btnAdd;
     private ProgressBar progressBar;
 
     private RequestQueue mRequestQueue;
-    private List<Test> testList;
+    private List<Reward> rewardList;
     private List<Integer> idsList;
 
     @Override
@@ -48,17 +48,17 @@ public class UserTests extends AppCompatActivity {
 
         btnAdd = findViewById(R.id.btnAdd);
 
-        mRequestQueue =  MyVolleySingletonUtil.getInstance(UserTests.this).getRequestQueue();
+        mRequestQueue =  MyVolleySingletonUtil.getInstance(UserMyRewards.this).getRequestQueue();
         progressBar = findViewById(R.id.get_not_progress_bar);
 
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(UserTests.this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(UserMyRewards.this));
 
-        testList = new ArrayList<>();
+        rewardList = new ArrayList<>();
         idsList = new ArrayList<>();
 
         try {
-            getTests();
+            getRewards();
         } catch (JSONException e) {
             throw new RuntimeException(e);
         }
@@ -66,7 +66,7 @@ public class UserTests extends AppCompatActivity {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(UserTests.this, UserTests.class);
+                Intent intent = new Intent(UserMyRewards.this, UserMyRewards.class);
                 startActivity(intent);
                 finish();
             }
@@ -81,10 +81,10 @@ public class UserTests extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                List<Test> testListFiltered = new ArrayList<>();
-                for (Test test : testList){
-                    if(test.getTest_name().toLowerCase().contains(newText.toLowerCase()) || String.valueOf(test.getTest_name()).toLowerCase().contains(newText.toLowerCase())){
-                        testListFiltered.add(test);
+                List<Reward> rewardListFiltered = new ArrayList<>();
+                for (Reward reward : rewardList){
+                    if(reward.getName().toLowerCase().contains(newText.toLowerCase()) || String.valueOf(reward.getName()).toLowerCase().contains(newText.toLowerCase())){
+                        rewardListFiltered.add(reward);
                     }
                 }
 
@@ -96,10 +96,10 @@ public class UserTests extends AppCompatActivity {
 
     }
 
-    public void getTests() throws JSONException {
+    public void getRewards() throws JSONException {
 
         JsonArrayRequest jsonArrayRequest
-                = new JsonArrayRequest(Request.Method.POST, "http://192.168.43.3:9080/app/test/getAll", null, new Response.Listener<JSONArray>() {
+                = new JsonArrayRequest(Request.Method.POST, "http://192.168.43.3:9080/app/reward/getAll", null, new Response.Listener<JSONArray>() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onResponse(JSONArray response) {
@@ -111,19 +111,19 @@ public class UserTests extends AppCompatActivity {
 
                     try{
                         JSONObject responseObject = response.getJSONObject(i);
-                        Log.d("TEST OBJECT IS", String.valueOf(responseObject));
+                        Log.d("REWARD OBJECT IS", String.valueOf(responseObject));
                         Integer id = responseObject.getInt("user_id");
                         Integer user_id = responseObject.getInt("user_id");
-                        Test test
-                                = new test(responseObject.getInt("test_id"),
-                                responseObject.getString("test_name"),
-                                responseObject.getString("is_done"));
-                        Log.d("THIS_TEST", String.valueOf(test));
-                        testList.add(test);
+                        Reward reward
+                                = new reward(responseObject.getInt("reward_id"),
+                                responseObject.getString("reward_name"),
+                                responseObject.getString("reason"));
+                        Log.d("THIS_REWARD", String.valueOf(reward));
+                        rewardList.add(reward);
                         idsList.add(id);
                     } catch (JSONException e){
                         e.printStackTrace();
-                        Toast.makeText(UserTests.this, "Something went wrong", Toast.LENGTH_LONG).show();
+                        Toast.makeText(UserMyRewards.this, "Something went wrong", Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -136,8 +136,8 @@ public class UserTests extends AppCompatActivity {
             public void onErrorResponse(VolleyError volleyError) {
                 volleyError.printStackTrace();
                 progressBar.setVisibility(View.GONE);
-                Log.i("Test", volleyError.toString());
-                Toast.makeText(UserTests.this, "Failed to get tests", Toast.LENGTH_LONG).show();
+                Log.i("Reward", volleyError.toString());
+                Toast.makeText(UserMyRewards.this, "Failed to get rewards", Toast.LENGTH_LONG).show();
 
             }
         }){
@@ -145,4 +145,5 @@ public class UserTests extends AppCompatActivity {
         mRequestQueue.add(jsonArrayRequest);
     }
 }
+
 

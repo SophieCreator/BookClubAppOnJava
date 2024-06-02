@@ -71,7 +71,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/ans1"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -87,7 +87,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/ans2"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -103,7 +103,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/ans3"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -155,7 +155,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/ans11"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -171,7 +171,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/ans22"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -187,7 +187,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/ans33"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -203,7 +203,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/ans44"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -222,7 +222,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btnAddRecord"
+        android:id="@+id/btnAddPoll"
         android:layout_width="307dp"
         android:layout_height="66dp"
         android:layout_marginStart="51dp"
@@ -230,6 +230,8 @@
         android:layout_marginBottom="116dp"
         android:paddingVertical="18dp"
         android:text="Проголосовать"
+
+        android:onClick="submitPoll"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

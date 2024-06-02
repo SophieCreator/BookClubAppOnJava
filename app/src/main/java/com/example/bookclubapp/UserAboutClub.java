@@ -64,9 +64,7 @@ public class UserAboutClub extends AppCompatActivity {
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                How3();
-            }
+            public void onClick(View v) { How3(); }
         });
     }
 

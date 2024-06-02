@@ -7,14 +7,14 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-public class UserRegDone extends AppCompatActivity {
+public class UserPollDone extends AppCompatActivity {
 
     private ConstraintLayout mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_regdone);
+        setContentView(R.layout.activity_user_polldone);
 
         mainLayout = findViewById(R.id.main);
         mainLayout.setOnTouchListener(new View.OnTouchListener() {

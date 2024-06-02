@@ -2,11 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/Poll"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient2"
-    tools:context=".UserPoll">
+    tools:context=".UserMyMeetings">
 
     <LinearLayout
         android:id="@+id/layout_header"
@@ -40,10 +40,35 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="50dp"
             android:gravity="bottom|center"
-            android:text="Мои достижения"
-            android:textSize="28sp" />
+            android:text="Посещенные встречи"
+            android:textSize="27sp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/MeetingList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="289dp">
+
+        <TextView
+            android:id="@+id/no_meetings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Нет встреч"
+            android:textSize="22sp"
+            android:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/meeting_list_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
+
+    </LinearLayout>
 
     <ImageView
         android:id="@+id/imageAboutClub"
@@ -55,21 +80,13 @@
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="364dp"
         android:contentDescription="@string/aboutclub"
-        android:src="@drawable/picrewards"
+        android:src="@drawable/meetings"
         app:layout_constraintBottom_toTopOf="@+id/navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ProgressBar
-        android:id="@+id/get_not_progress_bar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        tools:layout_editor_absoluteX="184dp"
-        tools:layout_editor_absoluteY="327dp" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <LinearLayout
         android:id="@+id/navigation"
@@ -151,4 +168,14 @@
 
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/get_not_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        tools:layout_editor_absoluteX="184dp"
+        tools:layout_editor_absoluteY="327dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+

@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookclubapp.models.User;
 
+import java.util.List;
+
 public class UserProfile extends AppCompatActivity {
 
     TextView uName, uEmail;
@@ -80,12 +82,7 @@ public class UserProfile extends AppCompatActivity {
         private Button btnEditProfile;
         private Button btnAboutClub;
         private Button btnMainWindow;
-        private Button btnMeetings;
-        private Button btnProfile;
-
-        private ImageButton showMoreButton;
-
-        private int userId = 1;  // Replace this with the actual user ID from your authentication system
+        private Button btnTests;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -99,9 +96,6 @@ public class UserProfile extends AppCompatActivity {
             btnAboutClub = findViewById(R.id.btnAboutClub);
             btnMainWindow = findViewById(R.id.btnMainWindow);
             btnTests = findViewById(R.id.btnTests);
-            btnProfile = findViewById(R.id.btnProfile);
-
-            showMoreButton = findViewById(R.id.showmore);
 
             btnLogout.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -152,11 +146,11 @@ public class UserProfile extends AppCompatActivity {
                 }
             });
 
-            loadUserData(userId);
+            loadUserData(user_id);
         }
 
         private void loadUserData(int userId) {
-            User user = User.getUserById(userId);
+            User user = User.getUser_id(user_id);
 
             if (user != null) {
                 userNameTextView.setText(user.getName());

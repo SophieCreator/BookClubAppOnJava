@@ -46,7 +46,7 @@
         android:layout_width="350dp"
         android:layout_height="53dp"
         android:layout_marginStart="30dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="30dp"
 
         android:background="@drawable/rounder"
@@ -55,7 +55,7 @@
         android:paddingTop="5dp"
         android:paddingRight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_header">
 
@@ -89,7 +89,7 @@
         android:paddingTop="5dp"
         android:paddingRight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.56"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_header">
 
@@ -161,17 +161,17 @@
         android:layout_marginStart="51dp"
         android:layout_marginEnd="51dp"
         android:layout_marginBottom="170dp"
-        android:paddingVertical="18dp"
-        android:text="Записаться"
-
         android:onClick="goToRecord"
+        android:paddingVertical="18dp"
+
+        android:text="Записаться"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout_header"
-        app:layout_constraintVertical_bias="0.992" />
+        app:layout_constraintVertical_bias="0.912" />
 
     <ImageButton
         android:id="@+id/btnPool"
@@ -181,15 +181,14 @@
         android:layout_marginBottom="104dp"
 
         android:backgroundTint="@color/white"
-        android:padding="20dp"
-        android:src="@drawable/showmore"
-
         android:onClick="goToPoll"
+        android:padding="20dp"
+
+        android:src="@drawable/showmore"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_header">
-    </ImageButton>
+        app:layout_constraintTop_toBottomOf="@+id/layout_header"></ImageButton>
 
     <LinearLayout
         android:id="@+id/navigation"
@@ -205,7 +204,7 @@
 
         <Button
             android:id="@+id/btnAboutClub"
-            android:layout_width="14dp"
+            android:layout_width="1dp"
             android:layout_height="match_parent"
 
             android:layout_weight="0.5"

@@ -391,7 +391,7 @@
             android:drawableTop="@drawable/point"
             android:fontFamily="sans-serif-medium"
 
-            android:onClick="goToTests"
+            android:onClick="goToYs"
             android:padding="10dp"
             android:text="Тесты"
             android:textColor="@color/purple"

@@ -2,23 +2,22 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/AboutClub"
+    android:id="@+id/PollDone"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient2"
-    tools:context=".UserAboutClub">
+    tools:context=".UserPollDone">
 
     <LinearLayout
         android:id="@+id/layout_header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="302dp"
+        android:layout_marginBottom="478dp"
         android:orientation="horizontal"
         android:paddingHorizontal="5dp"
         android:paddingVertical="10dp"
 
-        app:layout_constraintBottom_toTopOf="@+id/btnHow1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -30,8 +29,8 @@
             android:layout_gravity="center"
             android:layout_marginEnd="0dp"
             android:gravity="center"
-            android:text="@string/aboutclub_a"
-            android:textColor="@color/purple"
+            android:text="Голосование"
+            android:textColor="@color/cardview_shadow_start_color"
             android:textSize="30sp"
 
             app:layout_constraintBottom_toTopOf="@+id/layout"
@@ -40,97 +39,51 @@
             app:layout_constraintTop_toTopOf="parent" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageAboutClub"
-        android:layout_width="199dp"
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="369dp"
+        android:layout_height="244dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="364dp"
+        android:layout_marginEnd="30dp"
 
-        android:layout_height="213dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="67dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginBottom="364dp"
-        android:contentDescription="@string/aboutclub"
-        android:src="@drawable/aboutclub"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
+        android:background="@drawable/rounder"
+        android:orientation="vertical"
+        android:paddingLeft="30dp"
+        android:paddingTop="5dp"
+        android:paddingRight="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/layout_header">
 
-    <TextView
-        android:id="@+id/textAboutClub"
-        android:layout_width="379dp"
-        android:layout_height="122dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="260dp"
-        android:gravity="center"
-        android:text="@string/textaboutclub"
-        android:textColor="@color/black"
+        <TextView
+            android:id="@+id/question2"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:text="Спасибо, Ваш голос учтён!"
+            android:textColor="@color/purple"
 
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnHow1"
-        android:layout_width="0dp"
+        <ImageView
+            android:id="@+id/imagePollDone"
+            android:layout_width="200dp"
 
-        android:layout_height="0dp"
-        android:layout_marginStart="25dp"
+            android:layout_height="189dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="76dp"
+            android:layout_marginBottom="0dp"
+            android:contentDescription="@string/aboutclub"
+            android:src="@drawable/greeting_png" />
 
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="9dp"
-        android:backgroundTint="@color/purple"
-        android:fontFamily="sans-serif-medium"
-        android:padding="20dp"
-        android:text="@string/how1"
-        android:onClick="goToHow1"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnHow2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout_header" />
-
-    <Button
-        android:id="@+id/btnHow2"
-        android:layout_width="0dp"
-
-        android:layout_height="0dp"
-        android:layout_marginStart="25dp"
-
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="9dp"
-        android:backgroundTint="@color/purple"
-        android:fontFamily="sans-serif-medium"
-        android:padding="20dp"
-        android:text="@string/how2"
-        android:onClick="goToHow2"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnHow3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnHow1" />
-
-    <Button
-        android:id="@+id/btnHow3"
-        android:layout_width="0dp"
-
-        android:layout_height="0dp"
-        android:layout_marginStart="25dp"
-
-        android:layout_marginEnd="25dp"
-        android:layout_marginBottom="127dp"
-        android:backgroundTint="@color/purple"
-        android:fontFamily="sans-serif-medium"
-        android:padding="20dp"
-        android:text="@string/how3"
-
-        android:onClick="goToHow3"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnHow2" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/navigation"
@@ -142,8 +95,7 @@
         android:paddingBottom="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageAboutClub">
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
             android:id="@+id/btnAboutClub"
@@ -164,7 +116,7 @@
 
         <Button
             android:id="@+id/btnMainWindow"
-            android:layout_width="0dp"
+            android:layout_width="2dp"
             android:layout_height="match_parent"
 
             android:layout_weight="0.5"
@@ -173,21 +125,22 @@
             android:fontFamily="sans-serif-medium"
 
             android:onClick="goToMainWindow"
+            android:padding="10dp"
             android:text="Главная"
             android:textColor="@color/purple"
             android:textSize="15sp" />
 
         <Button
-            android:id="@+id/btnTests"
+            android:id="@+id/btnMeetings"
             android:layout_width="0dp"
             android:layout_height="match_parent"
 
             android:layout_weight="0.5"
             android:backgroundTint="@color/white"
-            android:drawableTop="@drawable/list_p"
+            android:drawableTop="@drawable/point"
             android:fontFamily="sans-serif-medium"
 
-            android:onClick="goToTests"
+            android:onClick="goToMeetings"
             android:padding="10dp"
             android:text="Тесты"
             android:textColor="@color/purple"

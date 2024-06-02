@@ -12,7 +12,7 @@ public class UserRecordDone extends AppCompatActivity {
 
     private Button btnAboutClub;
     private Button btnMainWindow;
-    private Button btnMeetings;
+    private Button btnTests;
     private Button btnProfile;
 
     @Override
@@ -39,7 +39,7 @@ public class UserRecordDone extends AppCompatActivity {
             }
         });
 
-        btnMeetings.setOnClickListener(new View.OnClickListener() {
+        btnTests.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 goToTests(v);

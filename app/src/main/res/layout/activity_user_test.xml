@@ -9,6 +9,42 @@
     tools:context=".UserTest">
 
 
+    <LinearLayout
+        android:id="@+id/layout_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingHorizontal="5dp"
+        android:paddingVertical="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginEnd="5dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/back"
+            android:onClick="goToAboutClub"
+            android:padding="15dp"
+            android:src="@drawable/back" />
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:gravity="bottom|center"
+            android:text=""
+            android:textSize="28sp" />
+    </LinearLayout>
+
     <ImageView
         android:id="@+id/imageAboutClub"
         android:layout_width="193dp"
@@ -40,7 +76,7 @@
         android:paddingLeft="30dp"
         android:paddingTop="5dp"
         android:paddingRight="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/navigation"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +97,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/ans1"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -77,7 +113,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/ans2"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -93,7 +129,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/ans3"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -109,7 +145,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <CheckBox
             android:id="@+id/ans4"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
@@ -124,86 +160,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/navigation"
-        android:layout_width="417dp"
-        android:layout_height="0dp"
-        android:background="@color/white"
-        android:gravity="bottom"
-        android:orientation="horizontal"
-        android:paddingBottom="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout1">
-
-        <Button
-            android:id="@+id/btnAboutClub"
-            android:layout_width="14dp"
-            android:layout_height="match_parent"
-
-            android:layout_weight="0.5"
-            android:backgroundTint="@color/white"
-            android:drawableTop="@drawable/list_p"
-
-            android:fontFamily="sans-serif-medium"
-
-            android:onClick="goToAboutClub"
-            android:text="О клубе"
-            android:textColor="@color/purple"
-            android:textSize="15sp"
-            app:cornerRadius="0dp" />
-
-        <Button
-            android:id="@+id/btnMainWindow"
-            android:layout_width="2dp"
-            android:layout_height="match_parent"
-
-            android:layout_weight="0.5"
-            android:backgroundTint="@color/white"
-            android:drawableTop="@drawable/news_a"
-            android:fontFamily="sans-serif-medium"
-
-            android:onClick="goToMainWindow"
-            android:padding="10dp"
-            android:text="Главная"
-            android:textColor="@color/purple"
-            android:textSize="15sp" />
-
-        <Button
-            android:id="@+id/btnMeetings"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-
-            android:layout_weight="0.5"
-            android:backgroundTint="@color/white"
-            android:drawableTop="@drawable/point"
-            android:fontFamily="sans-serif-medium"
-
-            android:onClick="goToMeetings"
-            android:padding="10dp"
-            android:text="Тесты"
-            android:textColor="@color/purple"
-            android:textSize="15sp" />
-
-        <Button
-            android:id="@+id/btnProfile"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-
-            android:layout_weight="0.5"
-            android:backgroundTint="@color/white"
-            android:drawableTop="@drawable/user_list_p"
-            android:fontFamily="sans-serif-medium"
-
-            android:onClick="goToProfile"
-            android:padding="10dp"
-            android:text="Профиль"
-            android:textColor="@color/purple"
-            android:textSize="15sp" />
 
     </LinearLayout>
 
